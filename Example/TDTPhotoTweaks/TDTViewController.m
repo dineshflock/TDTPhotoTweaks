@@ -7,12 +7,14 @@
 //
 
 #import "TDTViewController.h"
+#import <TDTPhotoTweaks/TDTPhotoTweaksViewController.h>
 
 static NSString * const SampleImageName = @"sample_image";
 static NSString * const BarButtonTitleCrop = @"Crop";
 static NSString * const BarButtonTitleReset = @"Reset";
+static NSString * const ControllerTitle = @"Sample";
 
-@interface TDTViewController ()
+@interface TDTViewController () <TDTPhotoTweaksViewControllerDelegate>
 {
   UIImageView * _imageView;
 }
@@ -43,7 +45,7 @@ static NSString * const BarButtonTitleReset = @"Reset";
 }
 
 - (void)setupNavigationItem {
-  [self.navigationItem setTitle:@"Sample"];
+  [self.navigationItem setTitle:ControllerTitle];
   UIBarButtonItem * cropButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleCrop style:UIBarButtonItemStylePlain target:self action:@selector(cropBarButtonTapped)];
   UIBarButtonItem * resetButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleReset style:UIBarButtonItemStylePlain target:self action:@selector(resetBarButtonTapped)];
   self.navigationItem.rightBarButtonItem = cropButton;
@@ -51,12 +53,34 @@ static NSString * const BarButtonTitleReset = @"Reset";
 }
 
 /// Bar button actions
+
 - (void)cropBarButtonTapped {
-  
+  TDTPhotoTweaksViewController *photoTweaksViewController = [[TDTPhotoTweaksViewController alloc] initWithImage:_imageView.image];
+  photoTweaksViewController.delegate = self;
+  photoTweaksViewController.autoSaveToLibray = YES;
+  photoTweaksViewController.maxRotationAngle = M_PI_4;
+  [self.navigationController presentViewController:photoTweaksViewController
+                                          animated:YES
+                                        completion:NULL];
 }
 
 - (void)resetBarButtonTapped {
   [self resetImageInImageView];
 }
+
+// Delegate Methods
+
+- (void)tdt_PhotoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller {
+  [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)tdt_PhotoTweaksController:(TDTPhotoTweaksViewController *)controller
+        didFinishWithCroppedImage:(UIImage *)croppedImage {
+  [_imageView setImage:croppedImage];
+  [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+
 
 @end
