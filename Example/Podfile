@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TDTPhotoTweaks_Example' do
+  pod 'TDTPhotoTweaks', :path => '../'
+
+  target 'TDTPhotoTweaks_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
