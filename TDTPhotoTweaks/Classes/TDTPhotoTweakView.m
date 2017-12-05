@@ -412,6 +412,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 @property (nonatomic, strong) UISlider *slider;
 @property (nonatomic, assign) CGSize originalSize;
 @property (nonatomic, assign) CGFloat angle;
+@property (nonatomic, assign) NSUInteger numberRotations;
 
 @property (nonatomic, assign) BOOL manualZoomed;
 
@@ -636,9 +637,12 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   
   // update grids
   [self.cropView updateGridLines:NO];
-  
+  [self rotateWithAngle:self.slider.value];
+}
+
+- (void)rotateWithAngle:(CGFloat)angle {
   // rotate scroll view
-  self.angle = self.slider.value;
+  self.angle = angle;
   self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
   
   // position scroll view
@@ -669,18 +673,40 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   [self.cropView dismissGridLines];
 }
 
+- (void)setNumberRotations:(NSUInteger)numberRotations {
+  _numberRotations = numberRotations % 4;
+}
+
+-(CGFloat)angle {
+  return (self.numberRotations * M_PI_2) + _angle;
+}
+
 - (void)rotateImage {
+  self.numberRotations += 1;
+  [UIView animateWithDuration:0.25 animations:^{
+    self.angle = 0;
+    self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
+    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
+    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
+    self.scrollView.minimumZoomScale = 1;
+    [self.scrollView setZoomScale:1 animated:NO];
     
+    self.cropView.frame = self.scrollView.frame;
+    self.cropView.center = self.scrollView.center;
+    [self updateMasks:NO];
+    
+    [self.slider setValue:0 animated:YES];
+  }];
 }
 
 - (void)lockCropViewToRatio:(CGFloat)ratio {
-    
+  
 }
 
 - (void)reset {
   [UIView animateWithDuration:0.25 animations:^{
     self.angle = 0;
-    
+    self.numberRotations = 0;
     self.scrollView.transform = CGAffineTransformIdentity;
     self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
     self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
