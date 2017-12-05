@@ -215,6 +215,18 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   }
 }
 
+- (void)lockToRatio:(CGFloat)ration {
+  CGRect frame = self.frame;
+  frame.size = CGSizeMake(frame.size.height * ration, frame.size.height);
+  self.frame = frame;
+  if ([self.delegate respondsToSelector:@selector(tdt_CropMoved:)]) {
+    [self.delegate tdt_CropMoved:self];
+  }
+  if ([self.delegate respondsToSelector:@selector(tdt_CropEnded:)]) {
+    [self.delegate tdt_CropEnded:self];
+  }
+}
+
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   if ([touches count] == 1) {
     CGPoint location = [[touches anyObject] locationInView:self];
@@ -701,7 +713,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)lockCropViewToRatio:(CGFloat)ratio {
-  
+  [self.cropView lockToRatio:ratio];
 }
 
 - (void)reset {

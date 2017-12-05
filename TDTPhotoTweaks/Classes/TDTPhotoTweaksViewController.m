@@ -109,7 +109,41 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
 }
 
 - (void)ratioButtonTapped {
-    [self.photoView lockCropViewToRatio:0.5];
+  UIAlertController * optionsVC = [UIAlertController alertControllerWithTitle:nil
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Square" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:1.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"3:2" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:3.0/2.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"5:3" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:5.0/3.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"4:3" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:4.0/3.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"5:4" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:5.0/4.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"7:5" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:7.0/5.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"16:9" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:16.0/9.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL]];
+  
+  [self presentViewController:optionsVC animated:YES completion:NULL];
+  
 }
 
 - (void)resetButtonTapped {
