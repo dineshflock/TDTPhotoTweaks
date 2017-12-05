@@ -1,14 +1,11 @@
 //
-//  UIColor+Tweak.h
-//  PhotoTweaks
-//
-//  Created by TuYou on 14/12/6.
-//  Copyright (c) 2014年 Tu You. All rights reserved.
-//
+//  UIColor+TDTTweak.h
+//  TDTPhotoTweaks
+//  Heavily inspired from https://github.com/itouch2/PhotoTweaks
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (Tweak)
+@interface UIColor (TDTTweak)
 
 + (UIColor *)cancelButtonColor;
 + (UIColor *)cancelButtonHighlightedColor;

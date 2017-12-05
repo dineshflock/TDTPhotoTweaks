@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		08EAEAC69319DDEDC83CAE3444D5C3D7 /* TDTPhotoTweaks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */; };
 		6E404EF5F099BD9063B73B29EEDA5C9F /* Pods-TDTPhotoTweaks_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D2EBC2AD8539A16A082C4542260B75 /* Pods-TDTPhotoTweaks_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71120BA31FD6D08300C5AEE4 /* PhotoTweaksViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120B9D1FD6D08300C5AEE4 /* PhotoTweaksViewController.h */; };
-		71120BA41FD6D08300C5AEE4 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120B9E1FD6D08300C5AEE4 /* PhotoTweaksViewController.m */; };
-		71120BA51FD6D08300C5AEE4 /* PhotoTweakView.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120B9F1FD6D08300C5AEE4 /* PhotoTweakView.h */; };
-		71120BA61FD6D08300C5AEE4 /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120BA01FD6D08300C5AEE4 /* PhotoTweakView.m */; };
-		71120BA71FD6D08300C5AEE4 /* UIColor+Tweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120BA11FD6D08300C5AEE4 /* UIColor+Tweak.h */; };
-		71120BA81FD6D08300C5AEE4 /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120BA21FD6D08300C5AEE4 /* UIColor+Tweak.m */; };
+		71120BA31FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120B9D1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h */; };
+		71120BA41FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120B9E1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m */; };
+		71120BA51FD6D08300C5AEE4 /* TDTPhotoTweakView.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120B9F1FD6D08300C5AEE4 /* TDTPhotoTweakView.h */; };
+		71120BA61FD6D08300C5AEE4 /* TDTPhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120BA01FD6D08300C5AEE4 /* TDTPhotoTweakView.m */; };
+		71120BA71FD6D08300C5AEE4 /* UIColor+TDTTweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120BA11FD6D08300C5AEE4 /* UIColor+TDTTweak.h */; };
+		71120BA81FD6D08300C5AEE4 /* UIColor+TDTTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120BA21FD6D08300C5AEE4 /* UIColor+TDTTweak.m */; };
 		7BAC4859CE693ED930548035608315BE /* Pods-TDTPhotoTweaks_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */; };
 		7C8B4453DAF2BCA7E76FB447A2F2BE96 /* TDTPhotoTweaks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5213A139CE19B6819795C3EAF32514BE /* TDTPhotoTweaks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA67109FCAB9A5D380ED8DFA9D2D043C /* Pods-TDTPhotoTweaks_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 430BD5BAED39AF7C44802D0D1AC7AE45 /* Pods-TDTPhotoTweaks_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,12 +53,12 @@
 		6303F5CA328A867E6D0F0A5170674B1E /* Pods-TDTPhotoTweaks_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TDTPhotoTweaks_Example-dummy.m"; sourceTree = "<group>"; };
-		71120B9D1FD6D08300C5AEE4 /* PhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweaksViewController.h; sourceTree = "<group>"; };
-		71120B9E1FD6D08300C5AEE4 /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
-		71120B9F1FD6D08300C5AEE4 /* PhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweakView.h; sourceTree = "<group>"; };
-		71120BA01FD6D08300C5AEE4 /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
-		71120BA11FD6D08300C5AEE4 /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
-		71120BA21FD6D08300C5AEE4 /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
+		71120B9D1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweaksViewController.h; sourceTree = "<group>"; };
+		71120B9E1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweaksViewController.m; sourceTree = "<group>"; };
+		71120B9F1FD6D08300C5AEE4 /* TDTPhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweakView.h; sourceTree = "<group>"; };
+		71120BA01FD6D08300C5AEE4 /* TDTPhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweakView.m; sourceTree = "<group>"; };
+		71120BA11FD6D08300C5AEE4 /* UIColor+TDTTweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDTTweak.h"; sourceTree = "<group>"; };
+		71120BA21FD6D08300C5AEE4 /* UIColor+TDTTweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDTTweak.m"; sourceTree = "<group>"; };
 		8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TDTPhotoTweaks-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95DADC7F065EAAC6328C53A9D8717CA8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,12 +136,12 @@
 		3D9C38FB7336432D41E112FB15A2E03D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				71120B9D1FD6D08300C5AEE4 /* PhotoTweaksViewController.h */,
-				71120B9E1FD6D08300C5AEE4 /* PhotoTweaksViewController.m */,
-				71120B9F1FD6D08300C5AEE4 /* PhotoTweakView.h */,
-				71120BA01FD6D08300C5AEE4 /* PhotoTweakView.m */,
-				71120BA11FD6D08300C5AEE4 /* UIColor+Tweak.h */,
-				71120BA21FD6D08300C5AEE4 /* UIColor+Tweak.m */,
+				71120B9D1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h */,
+				71120B9E1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m */,
+				71120B9F1FD6D08300C5AEE4 /* TDTPhotoTweakView.h */,
+				71120BA01FD6D08300C5AEE4 /* TDTPhotoTweakView.m */,
+				71120BA11FD6D08300C5AEE4 /* UIColor+TDTTweak.h */,
+				71120BA21FD6D08300C5AEE4 /* UIColor+TDTTweak.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -181,9 +181,11 @@
 				0B9A3EF662B73C8DF3D0A9FC09DD04D6 /* Support Files */,
 				37954E5DA38FF253D8BF5A18F0B5A33E /* TDTPhotoTweaks */,
 			);
+			indentWidth = 2;
 			name = TDTPhotoTweaks;
 			path = ../..;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		952D58C81C43A64725E4573E0F074109 /* Pods-TDTPhotoTweaks_Tests */ = {
 			isa = PBXGroup;
@@ -252,10 +254,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71120BA51FD6D08300C5AEE4 /* PhotoTweakView.h in Headers */,
-				71120BA71FD6D08300C5AEE4 /* UIColor+Tweak.h in Headers */,
+				71120BA51FD6D08300C5AEE4 /* TDTPhotoTweakView.h in Headers */,
+				71120BA71FD6D08300C5AEE4 /* UIColor+TDTTweak.h in Headers */,
 				7C8B4453DAF2BCA7E76FB447A2F2BE96 /* TDTPhotoTweaks-umbrella.h in Headers */,
-				71120BA31FD6D08300C5AEE4 /* PhotoTweaksViewController.h in Headers */,
+				71120BA31FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71120BA61FD6D08300C5AEE4 /* PhotoTweakView.m in Sources */,
-				71120BA41FD6D08300C5AEE4 /* PhotoTweaksViewController.m in Sources */,
-				71120BA81FD6D08300C5AEE4 /* UIColor+Tweak.m in Sources */,
+				71120BA61FD6D08300C5AEE4 /* TDTPhotoTweakView.m in Sources */,
+				71120BA41FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m in Sources */,
+				71120BA81FD6D08300C5AEE4 /* UIColor+TDTTweak.m in Sources */,
 				08EAEAC69319DDEDC83CAE3444D5C3D7 /* TDTPhotoTweaks-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

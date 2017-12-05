@@ -1,41 +1,38 @@
 //
-//  PhotoView.h
-//  PhotoTweaks
-//
-//  Created by Tu You on 14/12/2.
-//  Copyright (c) 2014年 Tu You. All rights reserved.
-//
+//  TDTPhotoView.h
+//  TDTPhotoTweaks
+//  Heavily inspired from https://github.com/itouch2/PhotoTweaks
 
 #import <UIKit/UIKit.h>
 
-extern const CGFloat kMaxRotationAngle;
+extern const CGFloat MaxRotationAngle;
 
-@class CropView;
+@class TDTCropView;
 
-@interface PhotoContentView : UIView
+@interface TDTPhotoContentView : UIView
 
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIImage *image;
 
 @end
 
-@protocol CropViewDelegate <NSObject>
+@protocol TDTCropViewDelegate <NSObject>
 
-- (void)cropEnded:(CropView *)cropView;
-- (void)cropMoved:(CropView *)cropView;
+- (void)tdt_CropEnded:(TDTCropView *)cropView;
+- (void)tdt_CropMoved:(TDTCropView *)cropView;
 
 @end
 
-@interface CropView : UIView
+@interface TDTCropView : UIView
 @end
 
-@interface PhotoTweakView : UIView
+@interface TDTPhotoTweakView : UIView
 
 @property (nonatomic, assign, readonly) CGFloat angle;
 @property (nonatomic, assign, readonly) CGPoint photoContentOffset;
 
-@property (nonatomic, strong, readonly) CropView *cropView;
-@property (nonatomic, strong, readonly) PhotoContentView *photoContentView;
+@property (nonatomic, strong, readonly) TDTCropView *cropView;
+@property (nonatomic, strong, readonly) TDTPhotoContentView *photoContentView;
 @property (nonatomic, strong, readonly) UISlider *slider;
 @property (nonatomic, strong, readonly) UIButton *resetBtn;
 

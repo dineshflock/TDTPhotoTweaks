@@ -1,19 +1,16 @@
 //
-//  PhotoTweaksViewController.h
-//  PhotoTweaks
-//
-//  Created by Tu You on 14/12/5.
-//  Copyright (c) 2014年 Tu You. All rights reserved.
-//
+//  TDTPhotoTweaksViewController.h
+//  TDTPhotoTweaks
+//  Heavily inspired from https://github.com/itouch2/PhotoTweaks
 
 #import <UIKit/UIKit.h>
 
-@protocol PhotoTweaksViewControllerDelegate;
+@protocol TDTPhotoTweaksViewControllerDelegate;
 
 /**
  The photo tweaks controller.
  */
-@interface PhotoTweaksViewController : UIViewController
+@interface TDTPhotoTweaksViewController : UIViewController
 
 /**
  Image to process.
@@ -33,7 +30,7 @@
 /**
  The optional photo tweaks controller delegate.
  */
-@property (nonatomic, weak) id<PhotoTweaksViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<TDTPhotoTweaksViewControllerDelegate> delegate;
 
 /**
  Save action button's default title color
@@ -80,16 +77,16 @@
 /**
  The photo tweaks controller delegate
  */
-@protocol PhotoTweaksViewControllerDelegate <NSObject>
+@protocol TDTPhotoTweaksViewControllerDelegate <NSObject>
 
 /**
  Called on image cropped.
  */
-- (void)photoTweaksController:(PhotoTweaksViewController *)controller didFinishWithCroppedImage:(UIImage *)croppedImage;
+- (void)tdt_PhotoTweaksController:(TDTPhotoTweaksViewController *)controller didFinishWithCroppedImage:(UIImage *)croppedImage;
 
 /**
  Called on cropping image canceled
  */
-- (void)photoTweaksControllerDidCancel:(PhotoTweaksViewController *)controller;
+- (void)tdt_PhotoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller;
 
 @end
