@@ -1,0 +1,6 @@
+framework module Pods_TDTPhotoTweaks_Tests {
+  umbrella header "Pods-TDTPhotoTweaks_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

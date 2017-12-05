@@ -1,0 +1,16 @@
+PODS:
+  - TDTPhotoTweaks (0.1.0)
+
+DEPENDENCIES:
+  - TDTPhotoTweaks (from `../`)
+
+EXTERNAL SOURCES:
+  TDTPhotoTweaks:
+    :path: ../
+
+SPEC CHECKSUMS:
+  TDTPhotoTweaks: 1679826bffc6c7e4b189a03749c387d9da151fdb
+
+PODFILE CHECKSUM: 2e52e49f7bb516855340a682913d4e95ac759e31
+
+COCOAPODS: 1.2.0

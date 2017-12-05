@@ -1,0 +1,6 @@
+framework module TDTPhotoTweaks {
+  umbrella header "TDTPhotoTweaks-umbrella.h"
+
+  export *
+  module * { export * }
+}

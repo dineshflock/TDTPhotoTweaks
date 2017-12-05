@@ -1,0 +1,22 @@
+{
+  "name": "TDTPhotoTweaks",
+  "version": "0.1.0",
+  "summary": "A short description of TDTPhotoTweaks.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/dineshflock/TDTPhotoTweaks",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "dineshflock": "dinesh.ku@flock.com"
+  },
+  "source": {
+    "git": "https://github.com/dineshflock/TDTPhotoTweaks.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "TDTPhotoTweaks/Classes/**/*"
+}
