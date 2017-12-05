@@ -686,16 +686,17 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   [UIView animateWithDuration:0.25 animations:^{
     self.angle = 0;
     self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
-    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
-    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
-    self.scrollView.minimumZoomScale = 1;
-    [self.scrollView setZoomScale:1 animated:NO];
+//    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
+//    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
+//    self.scrollView.minimumZoomScale = 1;
+//    [self.scrollView setZoomScale:1 animated:NO];
     
-    self.cropView.frame = self.scrollView.frame;
-    self.cropView.center = self.scrollView.center;
+//    self.cropView.frame = self.scrollView.frame;
+//    self.cropView.center = self.scrollView.center;
     [self updateMasks:NO];
     
     [self.slider setValue:0 animated:YES];
+    [self rotateWithAngle:0.0];
   }];
 }
 
