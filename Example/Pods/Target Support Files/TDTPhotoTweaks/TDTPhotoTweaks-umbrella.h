@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "TDTPhotoTweaksViewController.h"
+#import "TDTPhotoTweakView.h"
+#import "UIColor+TDTTweak.h"
 
 FOUNDATION_EXPORT double TDTPhotoTweaksVersionNumber;
 FOUNDATION_EXPORT const unsigned char TDTPhotoTweaksVersionString[];

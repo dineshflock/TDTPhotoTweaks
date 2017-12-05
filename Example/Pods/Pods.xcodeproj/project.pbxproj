@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08EAEAC69319DDEDC83CAE3444D5C3D7 /* TDTPhotoTweaks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */; };
+		34A4F3A9130CD33F4ED2644C42BE5FB4 /* TDTPhotoTweaks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */; };
+		57FAFF5F967CB32D87D504E1C2512C5C /* TDTPhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B92FA969004E0F2A270458310CA3D49 /* TDTPhotoTweaksViewController.m */; };
 		6E404EF5F099BD9063B73B29EEDA5C9F /* Pods-TDTPhotoTweaks_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D2EBC2AD8539A16A082C4542260B75 /* Pods-TDTPhotoTweaks_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71120BA31FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120B9D1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h */; };
-		71120BA41FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120B9E1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m */; };
-		71120BA51FD6D08300C5AEE4 /* TDTPhotoTweakView.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120B9F1FD6D08300C5AEE4 /* TDTPhotoTweakView.h */; };
-		71120BA61FD6D08300C5AEE4 /* TDTPhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120BA01FD6D08300C5AEE4 /* TDTPhotoTweakView.m */; };
-		71120BA71FD6D08300C5AEE4 /* UIColor+TDTTweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 71120BA11FD6D08300C5AEE4 /* UIColor+TDTTweak.h */; };
-		71120BA81FD6D08300C5AEE4 /* UIColor+TDTTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 71120BA21FD6D08300C5AEE4 /* UIColor+TDTTweak.m */; };
 		7BAC4859CE693ED930548035608315BE /* Pods-TDTPhotoTweaks_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */; };
-		7C8B4453DAF2BCA7E76FB447A2F2BE96 /* TDTPhotoTweaks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5213A139CE19B6819795C3EAF32514BE /* TDTPhotoTweaks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99D4C41C34E8352B1BDCE21C2525914D /* TDTPhotoTweakView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37CA42AB95A2312CBAD8C4D1B111B7DF /* TDTPhotoTweakView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B94D07E10ECB0EC81038AD0473F3999 /* TDTPhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6262A281DE605C8DA09760718BAB523 /* TDTPhotoTweakView.m */; };
+		B012506FBE9E202BE6D680654C6914F0 /* TDTPhotoTweaksViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 88410EB03AB18D8B2177F134075A8BE1 /* TDTPhotoTweaksViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA67109FCAB9A5D380ED8DFA9D2D043C /* Pods-TDTPhotoTweaks_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 430BD5BAED39AF7C44802D0D1AC7AE45 /* Pods-TDTPhotoTweaks_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC1ACAC06EDB1B320C68B1BE2F29083E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D4C1023C787CB2829FD5DF43093B0A79 /* UIColor+TDTTweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5409A687DFAF4E8CD4363D3C0E3DF9 /* UIColor+TDTTweak.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB366D5CED7BB61E3A1F5AA4E889AAD /* TDTPhotoTweaks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5213A139CE19B6819795C3EAF32514BE /* TDTPhotoTweaks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E067645E0F70C769AB4F6DD6D1FA38D0 /* UIColor+TDTTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ACC35A4702E85D622B36FA2453F46 /* UIColor+TDTTweak.m */; };
 		E9AF4DB7187F0A6197F303DEB6A931FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		EE2390D06B681CE89A06ABD9CA912EFB /* Pods-TDTPhotoTweaks_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47790D00F593174785AE26B1420420E8 /* Pods-TDTPhotoTweaks_Tests-dummy.m */; };
 		F4E793CA91DBCA2306A5E3A8651C7228 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -38,39 +38,39 @@
 		0A2E6DF9BD53E62BCD7136836790D36E /* TDTPhotoTweaks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TDTPhotoTweaks.xcconfig; sourceTree = "<group>"; };
 		1168A7AAB21966138C2B74F7665DA99D /* Pods-TDTPhotoTweaks_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TDTPhotoTweaks_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		15D2EBC2AD8539A16A082C4542260B75 /* Pods-TDTPhotoTweaks_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TDTPhotoTweaks_Example-umbrella.h"; sourceTree = "<group>"; };
-		1D73BEEBD47A30C0C7C6CA3282A10A8E /* TDTPhotoTweaks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TDTPhotoTweaks.modulemap; sourceTree = "<group>"; };
+		1D73BEEBD47A30C0C7C6CA3282A10A8E /* TDTPhotoTweaks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TDTPhotoTweaks.modulemap; sourceTree = "<group>"; };
 		20B590684953DA61B23CD78F55D81EEC /* Pods-TDTPhotoTweaks_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TDTPhotoTweaks_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		22B8CD6523F72CE65AF3E9EF33190E29 /* Pods-TDTPhotoTweaks_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		2D33D7DD06F728D08A5F2FE2C58CF981 /* Pods-TDTPhotoTweaks_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TDTPhotoTweaks_Tests.modulemap"; sourceTree = "<group>"; };
-		30CAE6D0656039246900DA683D582125 /* Pods_TDTPhotoTweaks_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDTPhotoTweaks_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		326580A17CBB7B443A57E1EEC7F13BF4 /* Pods_TDTPhotoTweaks_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDTPhotoTweaks_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D33D7DD06F728D08A5F2FE2C58CF981 /* Pods-TDTPhotoTweaks_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TDTPhotoTweaks_Tests.modulemap"; sourceTree = "<group>"; };
+		30CAE6D0656039246900DA683D582125 /* Pods_TDTPhotoTweaks_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TDTPhotoTweaks_Example.framework; path = "Pods-TDTPhotoTweaks_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		326580A17CBB7B443A57E1EEC7F13BF4 /* Pods_TDTPhotoTweaks_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TDTPhotoTweaks_Tests.framework; path = "Pods-TDTPhotoTweaks_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CA42AB95A2312CBAD8C4D1B111B7DF /* TDTPhotoTweakView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweakView.h; sourceTree = "<group>"; };
 		430BD5BAED39AF7C44802D0D1AC7AE45 /* Pods-TDTPhotoTweaks_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TDTPhotoTweaks_Tests-umbrella.h"; sourceTree = "<group>"; };
 		44818819F105AD5CF6F25283CC594642 /* Pods-TDTPhotoTweaks_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TDTPhotoTweaks_Example-resources.sh"; sourceTree = "<group>"; };
 		47790D00F593174785AE26B1420420E8 /* Pods-TDTPhotoTweaks_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TDTPhotoTweaks_Tests-dummy.m"; sourceTree = "<group>"; };
+		4B5409A687DFAF4E8CD4363D3C0E3DF9 /* UIColor+TDTTweak.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDTTweak.h"; sourceTree = "<group>"; };
 		4FC18854450509B3858F7E6519752E26 /* Pods-TDTPhotoTweaks_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5213A139CE19B6819795C3EAF32514BE /* TDTPhotoTweaks-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TDTPhotoTweaks-umbrella.h"; sourceTree = "<group>"; };
 		57CD13BEE40FC5090D84E691378682C1 /* Pods-TDTPhotoTweaks_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TDTPhotoTweaks_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6303F5CA328A867E6D0F0A5170674B1E /* Pods-TDTPhotoTweaks_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TDTPhotoTweaks_Example-dummy.m"; sourceTree = "<group>"; };
-		71120B9D1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweaksViewController.h; sourceTree = "<group>"; };
-		71120B9E1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweaksViewController.m; sourceTree = "<group>"; };
-		71120B9F1FD6D08300C5AEE4 /* TDTPhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweakView.h; sourceTree = "<group>"; };
-		71120BA01FD6D08300C5AEE4 /* TDTPhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweakView.m; sourceTree = "<group>"; };
-		71120BA11FD6D08300C5AEE4 /* UIColor+TDTTweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDTTweak.h"; sourceTree = "<group>"; };
-		71120BA21FD6D08300C5AEE4 /* UIColor+TDTTweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDTTweak.m"; sourceTree = "<group>"; };
+		6B92FA969004E0F2A270458310CA3D49 /* TDTPhotoTweaksViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweaksViewController.m; sourceTree = "<group>"; };
+		88410EB03AB18D8B2177F134075A8BE1 /* TDTPhotoTweaksViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweaksViewController.h; sourceTree = "<group>"; };
+		8A9ACC35A4702E85D622B36FA2453F46 /* UIColor+TDTTweak.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDTTweak.m"; sourceTree = "<group>"; };
 		8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TDTPhotoTweaks-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95DADC7F065EAAC6328C53A9D8717CA8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99D4A5AA1BB686C936BC0CC301E9798C /* Pods-TDTPhotoTweaks_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TDTPhotoTweaks_Example.modulemap"; sourceTree = "<group>"; };
+		99D4A5AA1BB686C936BC0CC301E9798C /* Pods-TDTPhotoTweaks_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TDTPhotoTweaks_Example.modulemap"; sourceTree = "<group>"; };
 		9C0331F5B699DAEF0434EBD4E2950AB9 /* Pods-TDTPhotoTweaks_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TDTPhotoTweaks_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C2CE2875F3AC6FD00F6EBA66EC9270E4 /* Pods-TDTPhotoTweaks_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TDTPhotoTweaks_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C6262A281DE605C8DA09760718BAB523 /* TDTPhotoTweakView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweakView.m; sourceTree = "<group>"; };
 		C7C503DCD3E02FA8E71068CAD224138A /* TDTPhotoTweaks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TDTPhotoTweaks-prefix.pch"; sourceTree = "<group>"; };
 		D4DD0BB8B61DE91FCC0D3A3EE675D95E /* Pods-TDTPhotoTweaks_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TDTPhotoTweaks_Tests-resources.sh"; sourceTree = "<group>"; };
 		DAB041CE2C6713F2EFBE5A1CBA7BAEA7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BE326E84BB8FFA9C7800280AB108D2 /* Pods-TDTPhotoTweaks_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E54EC39582045E15CC3240C8A270B4C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDB8253F01404E745DBF615B66EB1B67 /* TDTPhotoTweaks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDTPhotoTweaks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB8253F01404E745DBF615B66EB1B67 /* TDTPhotoTweaks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TDTPhotoTweaks.framework; path = TDTPhotoTweaks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDEF4C08B38AD2EC181817CD6DCA000 /* Pods-TDTPhotoTweaks_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TDTPhotoTweaks_Tests-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,25 +125,13 @@
 			path = "Example/Pods/Target Support Files/TDTPhotoTweaks";
 			sourceTree = "<group>";
 		};
-		37954E5DA38FF253D8BF5A18F0B5A33E /* TDTPhotoTweaks */ = {
+		38D29234470403F836362F5685CFFF45 /* TDTPhotoTweaks */ = {
 			isa = PBXGroup;
 			children = (
-				3D9C38FB7336432D41E112FB15A2E03D /* Classes */,
+				CC1ABE6BB0B8AC948EF9993F69808876 /* Classes */,
 			);
+			name = TDTPhotoTweaks;
 			path = TDTPhotoTweaks;
-			sourceTree = "<group>";
-		};
-		3D9C38FB7336432D41E112FB15A2E03D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				71120B9D1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h */,
-				71120B9E1FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m */,
-				71120B9F1FD6D08300C5AEE4 /* TDTPhotoTweakView.h */,
-				71120BA01FD6D08300C5AEE4 /* TDTPhotoTweakView.m */,
-				71120BA11FD6D08300C5AEE4 /* UIColor+TDTTweak.h */,
-				71120BA21FD6D08300C5AEE4 /* UIColor+TDTTweak.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		5103AE0FD30BB3F784A75A06C54B0DB3 /* Products */ = {
@@ -179,13 +167,11 @@
 			isa = PBXGroup;
 			children = (
 				0B9A3EF662B73C8DF3D0A9FC09DD04D6 /* Support Files */,
-				37954E5DA38FF253D8BF5A18F0B5A33E /* TDTPhotoTweaks */,
+				38D29234470403F836362F5685CFFF45 /* TDTPhotoTweaks */,
 			);
-			indentWidth = 2;
 			name = TDTPhotoTweaks;
 			path = ../..;
 			sourceTree = "<group>";
-			tabWidth = 2;
 		};
 		952D58C81C43A64725E4573E0F074109 /* Pods-TDTPhotoTweaks_Tests */ = {
 			isa = PBXGroup;
@@ -231,6 +217,20 @@
 			path = "Target Support Files/Pods-TDTPhotoTweaks_Example";
 			sourceTree = "<group>";
 		};
+		CC1ABE6BB0B8AC948EF9993F69808876 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				88410EB03AB18D8B2177F134075A8BE1 /* TDTPhotoTweaksViewController.h */,
+				6B92FA969004E0F2A270458310CA3D49 /* TDTPhotoTweaksViewController.m */,
+				37CA42AB95A2312CBAD8C4D1B111B7DF /* TDTPhotoTweakView.h */,
+				C6262A281DE605C8DA09760718BAB523 /* TDTPhotoTweakView.m */,
+				4B5409A687DFAF4E8CD4363D3C0E3DF9 /* UIColor+TDTTweak.h */,
+				8A9ACC35A4702E85D622B36FA2453F46 /* UIColor+TDTTweak.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,14 +250,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		681BA4BF16F8B96EF6D83862BD631036 /* Headers */ = {
+		AAEE7B4D9889D34577A15439360C0408 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71120BA51FD6D08300C5AEE4 /* TDTPhotoTweakView.h in Headers */,
-				71120BA71FD6D08300C5AEE4 /* UIColor+TDTTweak.h in Headers */,
-				7C8B4453DAF2BCA7E76FB447A2F2BE96 /* TDTPhotoTweaks-umbrella.h in Headers */,
-				71120BA31FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.h in Headers */,
+				DCB366D5CED7BB61E3A1F5AA4E889AAD /* TDTPhotoTweaks-umbrella.h in Headers */,
+				B012506FBE9E202BE6D680654C6914F0 /* TDTPhotoTweaksViewController.h in Headers */,
+				99D4C41C34E8352B1BDCE21C2525914D /* TDTPhotoTweakView.h in Headers */,
+				D4C1023C787CB2829FD5DF43093B0A79 /* UIColor+TDTTweak.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,9 +293,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3A66A9EE3CA33A8C6135776AC62968A /* Build configuration list for PBXNativeTarget "TDTPhotoTweaks" */;
 			buildPhases = (
-				AD45D03B5029B4BFA840F4636D551D64 /* Sources */,
+				9E657E34099267B42CC95ACCEA53A878 /* Sources */,
 				158D0295DA662A34E82E47BA2941288A /* Frameworks */,
-				681BA4BF16F8B96EF6D83862BD631036 /* Headers */,
+				AAEE7B4D9889D34577A15439360C0408 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -361,22 +361,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9E657E34099267B42CC95ACCEA53A878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34A4F3A9130CD33F4ED2644C42BE5FB4 /* TDTPhotoTweaks-dummy.m in Sources */,
+				57FAFF5F967CB32D87D504E1C2512C5C /* TDTPhotoTweaksViewController.m in Sources */,
+				9B94D07E10ECB0EC81038AD0473F3999 /* TDTPhotoTweakView.m in Sources */,
+				E067645E0F70C769AB4F6DD6D1FA38D0 /* UIColor+TDTTweak.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1B21FC34A3981CAA83B4901AA9DAFDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7BAC4859CE693ED930548035608315BE /* Pods-TDTPhotoTweaks_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD45D03B5029B4BFA840F4636D551D64 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				71120BA61FD6D08300C5AEE4 /* TDTPhotoTweakView.m in Sources */,
-				71120BA41FD6D08300C5AEE4 /* TDTPhotoTweaksViewController.m in Sources */,
-				71120BA81FD6D08300C5AEE4 /* UIColor+TDTTweak.m in Sources */,
-				08EAEAC69319DDEDC83CAE3444D5C3D7 /* TDTPhotoTweaks-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
