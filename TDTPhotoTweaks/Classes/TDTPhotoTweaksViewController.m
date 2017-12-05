@@ -8,6 +8,11 @@
 #import "UIColor+TDTTweak.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
+static const CGFloat DefaultToolbarHeight = 44.0;
+
+static NSString * const BarButtonTitleCancel = @"Cancel";
+static NSString * const BarButtonTitleDone = @"Done Cropping";
+
 @interface TDTPhotoTweaksViewController ()
 
 @property (strong, nonatomic) TDTPhotoTweakView *photoView;
@@ -40,39 +45,83 @@
   [self setupSubviews];
 }
 
+- (void)setupToolbar {
+  CGRect rect = CGRectMake(0,
+                           CGRectGetHeight(self.view.bounds) - DefaultToolbarHeight,
+                           CGRectGetWidth(self.view.bounds),
+                           DefaultToolbarHeight);
+  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:rect];
+  [toolbar setTranslucent:NO];
+  toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+  [self.view addSubview:toolbar];
+  
+  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleCancel
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(cancelBtnTapped)];
+  UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleDone
+                                                                    style:UIBarButtonItemStyleDone
+                                                                   target:self
+                                                                   action:@selector(saveBtnTapped)];
+  UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  [toolbar setItems:@[cancelButton, flexibleSpace, doneButton]];
+}
+- (void)setupOptionsToolbar {
+  CGRect rect = CGRectMake(0,
+                           CGRectGetHeight(self.view.bounds) - 2*DefaultToolbarHeight,
+                           CGRectGetWidth(self.view.bounds),
+                           DefaultToolbarHeight);
+  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:rect];
+  [toolbar setTranslucent:YES];
+  [toolbar setBackgroundImage:[UIImage new]
+           forToolbarPosition:UIToolbarPositionAny
+                   barMetrics:UIBarMetricsDefault];
+  [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+  
+  [self.view addSubview:toolbar];
+  
+  UIBarButtonItem *rotateOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"Rotate"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(rotateButtonTapped)];
+  
+  UIBarButtonItem *ratioOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"Ratio"
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(ratioButtonTapped)];
+  
+  UIBarButtonItem *resetOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"RESET"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(resetButtonTapped)];
+  NSUInteger fontSize = 14.0;
+  UIFont *font = [UIFont systemFontOfSize:fontSize];
+  NSDictionary *attributes = @{NSFontAttributeName: font};
+  [resetOptionButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
+  
+  UIBarButtonItem *flexibleSpaceOne = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIBarButtonItem *flexibleSpaceTwo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  [toolbar setItems:@[rotateOptionButton, flexibleSpaceOne, resetOptionButton, flexibleSpaceTwo, ratioOptionButton]];
+}
+
+- (void)rotateButtonTapped {
+  [self.photoView rotateImage];
+}
+
+- (void)ratioButtonTapped {
+    [self.photoView lockCropViewToRatio:0.5];
+}
+
+- (void)resetButtonTapped {
+    [self.photoView reset];
+}
+
 - (void)setupSubviews {
   self.photoView = [[TDTPhotoTweakView alloc] initWithFrame:self.view.bounds image:self.image maxRotationAngle:self.maxRotationAngle];
   self.photoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   [self.view addSubview:self.photoView];
-  
-  UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-  cancelBtn.frame = CGRectMake(8, CGRectGetHeight(self.view.frame) - 40, 60, 40);
-  cancelBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-  [cancelBtn setTitle:NSLocalizedStringFromTable(@"Cancel", @"TDTPhotoTweaks", nil) forState:UIControlStateNormal];
-  UIColor *cancelTitleColor = !self.cancelButtonTitleColor ?
-  [UIColor cancelButtonColor] : self.cancelButtonTitleColor;
-  [cancelBtn setTitleColor:cancelTitleColor forState:UIControlStateNormal];
-  UIColor *cancelHighlightTitleColor = !self.cancelButtonHighlightTitleColor ?
-  [UIColor cancelButtonHighlightedColor] : self.cancelButtonHighlightTitleColor;
-  [cancelBtn setTitleColor:cancelHighlightTitleColor forState:UIControlStateHighlighted];
-  cancelBtn.titleLabel.font = [UIFont systemFontOfSize:17];
-  [cancelBtn addTarget:self action:@selector(cancelBtnTapped) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:cancelBtn];
-  
-  UIButton *cropBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-  cropBtn.titleLabel.textAlignment = NSTextAlignmentRight;
-  cropBtn.frame = CGRectMake(CGRectGetWidth(self.view.frame) - 60, CGRectGetHeight(self.view.frame) - 40, 60, 40);
-  [cropBtn setTitle:NSLocalizedStringFromTable(@"Done", @"TDTPhotoTweaks", nil) forState:UIControlStateNormal];
-  UIColor *saveButtonTitleColor = !self.saveButtonTitleColor ?
-  [UIColor saveButtonColor] : self.saveButtonTitleColor;
-  [cropBtn setTitleColor:saveButtonTitleColor forState:UIControlStateNormal];
-  
-  UIColor *saveButtonHighlightTitleColor = !self.saveButtonHighlightTitleColor ?
-  [UIColor saveButtonHighlightedColor] : self.saveButtonHighlightTitleColor;
-  [cropBtn setTitleColor:saveButtonHighlightTitleColor forState:UIControlStateHighlighted];
-  cropBtn.titleLabel.font = [UIFont systemFontOfSize:17];
-  [cropBtn addTarget:self action:@selector(saveBtnTapped) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:cropBtn];
+  [self setupOptionsToolbar];
+  [self setupToolbar];
 }
 
 - (void)cancelBtnTapped {

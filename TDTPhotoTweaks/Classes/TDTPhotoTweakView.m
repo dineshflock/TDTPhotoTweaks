@@ -410,7 +410,6 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UISlider *slider;
-@property (nonatomic, strong) UIButton *resetBtn;
 @property (nonatomic, assign) CGSize originalSize;
 @property (nonatomic, assign) CGFloat angle;
 
@@ -510,16 +509,6 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     [_slider addTarget:self action:@selector(sliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_slider];
     
-    _resetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _resetBtn.frame = CGRectMake(0, 0, 60, 20);
-    _resetBtn.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) - 95);
-    _resetBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_resetBtn setTitleColor:[UIColor resetButtonColor] forState:UIControlStateNormal];
-    [_resetBtn setTitleColor:[UIColor resetButtonHighlightedColor] forState:UIControlStateHighlighted];
-    [_resetBtn setTitle:NSLocalizedStringFromTable(@"RESET", @"TDTPhotoTweaks", nil) forState:UIControlStateNormal];
-    [_resetBtn addTarget:self action:@selector(resetBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_resetBtn];
-    
     _originalPoint = [self convertPoint:self.scrollView.center toView:self];
   }
   return self;
@@ -532,8 +521,6 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
   if (CGRectContainsPoint(self.slider.frame, point)) {
     return self.slider;
-  } else if (CGRectContainsPoint(self.resetBtn.frame, point)) {
-    return self.resetBtn;
   } else if (CGRectContainsPoint(CGRectInset(self.cropView.frame, -CropViewHotArea, -CropViewHotArea), point) && !CGRectContainsPoint(CGRectInset(self.cropView.frame, CropViewHotArea, CropViewHotArea), point)) {
     return self.cropView;
   }
@@ -682,7 +669,15 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   [self.cropView dismissGridLines];
 }
 
-- (void)resetBtnTapped:(id)sender {
+- (void)rotateImage {
+    
+}
+
+- (void)lockCropViewToRatio:(CGFloat)ratio {
+    
+}
+
+- (void)reset {
   [UIView animateWithDuration:0.25 animations:^{
     self.angle = 0;
     

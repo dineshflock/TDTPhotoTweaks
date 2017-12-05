@@ -46,4 +46,8 @@ extern const CGFloat MaxRotationAngle;
 
 - (CGPoint)photoTranslation;
 
+- (void)rotateImage;
+- (void)lockCropViewToRatio:(CGFloat)ratio;
+- (void)reset;
+
 @end
