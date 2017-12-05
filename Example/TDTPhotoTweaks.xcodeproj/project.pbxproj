@@ -59,14 +59,14 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		728D249E4687582A1454894D /* TDTPhotoTweaks.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TDTPhotoTweaks.podspec; path = ../TDTPhotoTweaks.podspec; sourceTree = "<group>"; };
-		8524C3488A2721454709C762 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		728D249E4687582A1454894D /* TDTPhotoTweaks.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TDTPhotoTweaks.podspec; path = ../TDTPhotoTweaks.podspec; sourceTree = "<group>"; };
+		8524C3488A2721454709C762 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9478059180BD17BB5C30D4C1 /* Pods-TDTPhotoTweaks_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDTPhotoTweaks_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TDTPhotoTweaks_Example/Pods-TDTPhotoTweaks_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A89D9F0DB851D6A68FA179DD /* Pods-TDTPhotoTweaks_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDTPhotoTweaks_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TDTPhotoTweaks_Example/Pods-TDTPhotoTweaks_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D729DD8A08E548CDD8ECBE68 /* Pods_TDTPhotoTweaks_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDTPhotoTweaks_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1DD9AB1E47EE29DD1DE92B /* Pods_TDTPhotoTweaks_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDTPhotoTweaks_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0429E89DEE685933C45D80E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E0429E89DEE685933C45D80E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,9 @@
 				6003F58B195388D20070C39A /* Products */,
 				2354650488C2C17CE5BF6EF8 /* Pods */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
