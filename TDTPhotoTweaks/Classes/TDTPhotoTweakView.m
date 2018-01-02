@@ -217,8 +217,10 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 - (void)lockToRatio:(CGFloat)ration {
   CGRect frame = self.frame;
+  CGPoint center = self.center;
   frame.size = CGSizeMake(frame.size.height * ration, frame.size.height);
   self.frame = frame;
+  self.center = center;
   if ([self.delegate respondsToSelector:@selector(tdt_CropMoved:)]) {
     [self.delegate tdt_CropMoved:self];
   }
@@ -649,12 +651,13 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   
   // update grids
   [self.cropView updateGridLines:NO];
-  [self rotateWithAngle:self.slider.value];
+  self.angle = self.slider.value;
+  [self rotateWithAngle:self.angle];
 }
 
 - (void)rotateWithAngle:(CGFloat)angle {
   // rotate scroll view
-  self.angle = angle;
+  //self.angle = angle;
   self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
   
   // position scroll view
@@ -671,11 +674,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   
   // scale scroll view
   BOOL shouldScale = self.scrollView.contentSize.width / self.scrollView.bounds.size.width <= 1.0 || self.scrollView.contentSize.height / self.scrollView.bounds.size.height <= 1.0;
-  if (!self.manualZoomed || shouldScale) {
+  if (shouldScale) {
     [self.scrollView setZoomScale:[self.scrollView zoomScaleToBound] animated:NO];
     self.scrollView.minimumZoomScale = [self.scrollView zoomScaleToBound];
-    
-    self.manualZoomed = NO;
   }
   
   [self checkScrollViewContentOffset];
@@ -696,8 +697,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (void)rotateImage {
   self.numberRotations += 1;
   [UIView animateWithDuration:0.25 animations:^{
-    self.angle = 0;
-    self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
+//    self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
 //    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
 //    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
 //    self.scrollView.minimumZoomScale = 1;
@@ -707,8 +707,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 //    self.cropView.center = self.scrollView.center;
     [self updateMasks:NO];
     
-    [self.slider setValue:0 animated:YES];
-    [self rotateWithAngle:0.0];
+//    [self.slider setValue:0 animated:YES];
+    [self rotateWithAngle:self.angle];
   }];
 }
 
