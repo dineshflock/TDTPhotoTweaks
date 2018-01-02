@@ -141,6 +141,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 @property (nonatomic, assign) BOOL cropLinesDismissed;
 @property (nonatomic, assign) BOOL gridLinesDismissed;
+@property (nonatomic, assign) BOOL isLocked;
+
 
 @end
 
@@ -216,6 +218,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)lockToRatio:(CGFloat)ration {
+  self.isLocked = YES;
   CGRect frame = self.frame;
   CGPoint center = self.center;
   frame.size = CGSizeMake(frame.size.height * ration, frame.size.height);
@@ -230,7 +233,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-  if ([touches count] == 1) {
+  if ([touches count] == 1 && self.isLocked == NO) {
     CGPoint location = [[touches anyObject] locationInView:self];
     CGRect frame = self.frame;
     
@@ -719,6 +722,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (void)reset {
   [UIView animateWithDuration:0.25 animations:^{
     self.angle = 0;
+    self.cropView.isLocked = NO;
     self.numberRotations = 0;
     self.scrollView.transform = CGAffineTransformIdentity;
     self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
