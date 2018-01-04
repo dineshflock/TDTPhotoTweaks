@@ -572,6 +572,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 #pragma mark - Crop View Delegate
 
 - (void)tdt_CropMoved:(TDTCropView *)cropView {
+  [self.slider setCenter:CGPointMake(cropView.center.x, cropView.frame.origin.y + cropView.frame.size.height + self.slider.frame.size.height/2.0)];
   [self updateMasks:NO];
 }
 
@@ -609,7 +610,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     // animate crop view
     cropView.bounds = CGRectMake(0, 0, newCropBounds.size.width, newCropBounds.size.height);
     cropView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
-    
+    [self.slider setCenter:CGPointMake(self.cropView.center.x, self.cropView.frame.origin.y + self.cropView.frame.size.height + self.slider.frame.size.height/2.0)];
     // zoom the specified area of scroll view
     CGRect zoomRect = [self convertRect:scaleFrame toView:self.scrollView.photoContentView];
     [self.scrollView zoomToRect:zoomRect animated:NO];
@@ -735,6 +736,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     
     self.cropView.frame = self.scrollView.frame;
     self.cropView.center = self.scrollView.center;
+    [self.slider setCenter:CGPointMake(self.cropView.center.x, self.cropView.frame.origin.y + self.cropView.frame.size.height + self.slider.frame.size.height/2.0)];
     [self updateMasks:NO];
     
     [self.slider setRotation:0.0];

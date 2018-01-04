@@ -59,7 +59,7 @@
 }
 
 - (void)setup {
-  [self setFrame:CGRectMake(0, 0, 150.0, 50.0)];
+  [self setFrame:CGRectMake(0, 0, 210.0, 50.0)];
   [self setBackgroundColor:[UIColor clearColor]];
   [self setClipsToBounds:YES];
   
