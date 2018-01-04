@@ -60,6 +60,7 @@
 		6B92FA969004E0F2A270458310CA3D49 /* TDTPhotoTweaksViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweaksViewController.m; sourceTree = "<group>"; };
 		7177CE471FFE1B250021200B /* TDTCompassSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCompassSlider.h; sourceTree = "<group>"; };
 		7177CE481FFE1B250021200B /* TDTCompassSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCompassSlider.m; sourceTree = "<group>"; };
+		7177CE611FFE1C960021200B /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		88410EB03AB18D8B2177F134075A8BE1 /* TDTPhotoTweaksViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweaksViewController.h; sourceTree = "<group>"; };
 		8A9ACC35A4702E85D622B36FA2453F46 /* UIColor+TDTTweak.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDTTweak.m"; sourceTree = "<group>"; };
 		8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TDTPhotoTweaks-dummy.m"; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		38D29234470403F836362F5685CFFF45 /* TDTPhotoTweaks */ = {
 			isa = PBXGroup;
 			children = (
+				7177CE551FFE1C6B0021200B /* Assets */,
 				CC1ABE6BB0B8AC948EF9993F69808876 /* Classes */,
 			);
 			path = TDTPhotoTweaks;
@@ -153,6 +155,14 @@
 				8B6374C72DD88AC24D60EF3B12F4A184 /* TDTPhotoTweaks */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		7177CE551FFE1C6B0021200B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7177CE611FFE1C960021200B /* Resources.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
