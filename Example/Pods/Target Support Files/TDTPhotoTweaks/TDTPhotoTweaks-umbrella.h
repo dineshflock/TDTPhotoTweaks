@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "TDTCompassSlider.h"
 #import "TDTPhotoTweaksViewController.h"
 #import "TDTPhotoTweakView.h"
 #import "UIColor+TDTTweak.h"

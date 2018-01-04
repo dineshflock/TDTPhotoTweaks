@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'TDTPhotoTweaks/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'TDTPhotoTweaks' => ['TDTPhotoTweaks/Assets/*.png']
+  #   'TDTPhotoTweaks' => ['TDTPhotoTweaks/Assets/**/*.{xcassets,storyboard}’]
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

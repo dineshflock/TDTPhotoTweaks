@@ -8,6 +8,7 @@
 
 #import "TDTViewController.h"
 #import <TDTPhotoTweaks/TDTPhotoTweaksViewController.h>
+#import <TDTPhotoTweaks/TDTCompassSlider.h>
 
 static NSString * const SampleImageName = @"sample_image";
 static NSString * const BarButtonTitleCrop = @"Crop";
@@ -42,6 +43,7 @@ static NSString * const ControllerTitle = @"Sample";
   [self setupNavigationItem];
   [self setupImageView];
   [self resetImageInImageView];
+  [self testSlider];
 }
 
 - (void)setupNavigationItem {
@@ -78,6 +80,12 @@ static NSString * const ControllerTitle = @"Sample";
         didFinishWithCroppedImage:(UIImage *)croppedImage {
   [_imageView setImage:croppedImage];
   [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)testSlider {
+  TDTCompassSlider * slider = [[TDTCompassSlider alloc] initWithFrame:CGRectZero];
+  [self.view addSubview:slider];
+  slider.center = self.view.center;
 }
 
 
