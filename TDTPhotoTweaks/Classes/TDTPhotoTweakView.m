@@ -420,13 +420,13 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 @end
 
-@interface TDTPhotoTweakView () <UIScrollViewDelegate, TDTCropViewDelegate>
+@interface TDTPhotoTweakView () <UIScrollViewDelegate, TDTCropViewDelegate, TDTCompassSliderDelegate>
 
 @property (nonatomic, strong) TDTPhotoScrollView *scrollView;
 @property (nonatomic, strong) TDTCropView *cropView;
 
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) TDTCompassSlider *slider;
 @property (nonatomic, assign) CGSize originalSize;
 @property (nonatomic, assign) CGFloat angle;
 @property (nonatomic, assign) NSUInteger numberRotations;
@@ -519,18 +519,34 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     [self addSubview:_rightMask];
     [self updateMasks:NO];
     
-    _slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 260, 20)];
+    _slider = [[TDTCompassSlider alloc] initWithFrame:CGRectZero];
     _slider.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) - 135);
-    _slider.minimumValue = -self.maxRotationAngle;
-    _slider.maximumValue = self.maxRotationAngle;
-    [_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [_slider addTarget:self action:@selector(sliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside];
+    _slider.delegate = self;
     [self addSubview:_slider];
     
     _originalPoint = [self convertPoint:self.scrollView.center toView:self];
   }
   return self;
 }
+
+- (void)tdt_compassSliderEndRotate:(TDTCompassSlider *)slider {
+  [self.cropView dismissGridLines];
+}
+
+- (void)tdt_compassSliderBeginRotate:(TDTCompassSlider *)slider {
+  
+}
+
+-(void)tdt_compassSliderDidRotate:(TDTCompassSlider *)slider delta:(CGFloat)delta {
+  // update masks
+  [self updateMasks:NO];
+  
+  // update grids
+  [self.cropView updateGridLines:NO];
+  self.angle = self.slider.rotation;
+  [self rotateWithAngle:self.angle];
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image {
   return [self initWithFrame:frame image:image maxRotationAngle:MaxRotationAngle];
@@ -648,15 +664,6 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   }
 }
 
-- (void)sliderValueChanged:(id)sender {
-  // update masks
-  [self updateMasks:NO];
-  
-  // update grids
-  [self.cropView updateGridLines:NO];
-  self.angle = self.slider.value;
-  [self rotateWithAngle:self.angle];
-}
 
 - (void)rotateWithAngle:(CGFloat)angle {
   // rotate scroll view
@@ -685,10 +692,6 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   [self checkScrollViewContentOffset];
 }
 
-- (void)sliderTouchEnded:(id)sender {
-  [self.cropView dismissGridLines];
-}
-
 - (void)setNumberRotations:(NSUInteger)numberRotations {
   _numberRotations = numberRotations % 4;
 }
@@ -700,17 +703,17 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (void)rotateImage {
   self.numberRotations += 1;
   [UIView animateWithDuration:0.25 animations:^{
-//    self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
-//    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
-//    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
-//    self.scrollView.minimumZoomScale = 1;
-//    [self.scrollView setZoomScale:1 animated:NO];
+    //    self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
+    //    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
+    //    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
+    //    self.scrollView.minimumZoomScale = 1;
+    //    [self.scrollView setZoomScale:1 animated:NO];
     
-//    self.cropView.frame = self.scrollView.frame;
-//    self.cropView.center = self.scrollView.center;
+    //    self.cropView.frame = self.scrollView.frame;
+    //    self.cropView.center = self.scrollView.center;
     [self updateMasks:NO];
     
-//    [self.slider setValue:0 animated:YES];
+    //    [self.slider setValue:0 animated:YES];
     [self rotateWithAngle:self.angle];
   }];
 }
@@ -734,7 +737,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     self.cropView.center = self.scrollView.center;
     [self updateMasks:NO];
     
-    [self.slider setValue:0 animated:YES];
+    [self.slider setRotation:0.0];
   }];
 }
 

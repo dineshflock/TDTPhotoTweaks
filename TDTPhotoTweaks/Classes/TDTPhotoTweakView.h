@@ -4,6 +4,7 @@
 //  Heavily inspired from https://github.com/itouch2/PhotoTweaks
 
 #import <UIKit/UIKit.h>
+#import "TDTCompassSlider.h"
 
 extern const CGFloat MaxRotationAngle;
 
@@ -36,7 +37,7 @@ extern const CGFloat MaxRotationAngle;
 
 @property (nonatomic, strong, readonly) TDTCropView *cropView;
 @property (nonatomic, strong, readonly) TDTPhotoContentView *photoContentView;
-@property (nonatomic, strong, readonly) UISlider *slider;
+@property (nonatomic, strong, readonly) TDTCompassSlider *slider;
 @property (nonatomic, strong, readonly) UIButton *resetBtn;
 
 

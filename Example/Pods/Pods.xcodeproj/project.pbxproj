@@ -42,12 +42,12 @@
 		1168A7AAB21966138C2B74F7665DA99D /* Pods-TDTPhotoTweaks_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TDTPhotoTweaks_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		15D2EBC2AD8539A16A082C4542260B75 /* Pods-TDTPhotoTweaks_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TDTPhotoTweaks_Example-umbrella.h"; sourceTree = "<group>"; };
 		1C7C3A33848E3D3AF4DCA15FDC6A2A04 /* TDTCompassSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TDTCompassSlider.m; sourceTree = "<group>"; };
-		1D73BEEBD47A30C0C7C6CA3282A10A8E /* TDTPhotoTweaks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TDTPhotoTweaks.modulemap; sourceTree = "<group>"; };
+		1D73BEEBD47A30C0C7C6CA3282A10A8E /* TDTPhotoTweaks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TDTPhotoTweaks.modulemap; sourceTree = "<group>"; };
 		20B590684953DA61B23CD78F55D81EEC /* Pods-TDTPhotoTweaks_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TDTPhotoTweaks_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		22B8CD6523F72CE65AF3E9EF33190E29 /* Pods-TDTPhotoTweaks_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		2D33D7DD06F728D08A5F2FE2C58CF981 /* Pods-TDTPhotoTweaks_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TDTPhotoTweaks_Tests.modulemap"; sourceTree = "<group>"; };
-		30CAE6D0656039246900DA683D582125 /* Pods_TDTPhotoTweaks_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TDTPhotoTweaks_Example.framework; path = "Pods-TDTPhotoTweaks_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		326580A17CBB7B443A57E1EEC7F13BF4 /* Pods_TDTPhotoTweaks_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TDTPhotoTweaks_Tests.framework; path = "Pods-TDTPhotoTweaks_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D33D7DD06F728D08A5F2FE2C58CF981 /* Pods-TDTPhotoTweaks_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TDTPhotoTweaks_Tests.modulemap"; sourceTree = "<group>"; };
+		30CAE6D0656039246900DA683D582125 /* Pods_TDTPhotoTweaks_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDTPhotoTweaks_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		326580A17CBB7B443A57E1EEC7F13BF4 /* Pods_TDTPhotoTweaks_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDTPhotoTweaks_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		430BD5BAED39AF7C44802D0D1AC7AE45 /* Pods-TDTPhotoTweaks_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TDTPhotoTweaks_Tests-umbrella.h"; sourceTree = "<group>"; };
 		44818819F105AD5CF6F25283CC594642 /* Pods-TDTPhotoTweaks_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TDTPhotoTweaks_Example-resources.sh"; sourceTree = "<group>"; };
 		47790D00F593174785AE26B1420420E8 /* Pods-TDTPhotoTweaks_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TDTPhotoTweaks_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -61,9 +61,9 @@
 		6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TDTPhotoTweaks_Example-dummy.m"; sourceTree = "<group>"; };
 		8116EF701DC8B9BE676E23E6BC482A09 /* TDTCompassSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDTCompassSlider.h; sourceTree = "<group>"; };
 		8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TDTPhotoTweaks-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95DADC7F065EAAC6328C53A9D8717CA8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99D4A5AA1BB686C936BC0CC301E9798C /* Pods-TDTPhotoTweaks_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TDTPhotoTweaks_Example.modulemap"; sourceTree = "<group>"; };
+		99D4A5AA1BB686C936BC0CC301E9798C /* Pods-TDTPhotoTweaks_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TDTPhotoTweaks_Example.modulemap"; sourceTree = "<group>"; };
 		9C0331F5B699DAEF0434EBD4E2950AB9 /* Pods-TDTPhotoTweaks_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TDTPhotoTweaks_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A595EDEE950CCE9E7569BD1E9956FC41 /* TDTPhotoTweakView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TDTPhotoTweakView.m; sourceTree = "<group>"; };
 		C2CE2875F3AC6FD00F6EBA66EC9270E4 /* Pods-TDTPhotoTweaks_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TDTPhotoTweaks_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		E54EC39582045E15CC3240C8A270B4C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6AF6C67627FB62F54E5AB8756A59AC /* UIColor+TDTTweak.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDTTweak.m"; sourceTree = "<group>"; };
 		F0FADE9F66797C037535CF6395845E7B /* TDTPhotoTweakView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDTPhotoTweakView.h; sourceTree = "<group>"; };
-		FDB8253F01404E745DBF615B66EB1B67 /* TDTPhotoTweaks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TDTPhotoTweaks.framework; path = TDTPhotoTweaks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB8253F01404E745DBF615B66EB1B67 /* TDTPhotoTweaks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDTPhotoTweaks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDEF4C08B38AD2EC181817CD6DCA000 /* Pods-TDTPhotoTweaks_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TDTPhotoTweaks_Tests-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,7 +141,6 @@
 				51AAC47AB9E4B4BDFF114EC4781AD0DA /* UIColor+TDTTweak.h */,
 				EA6AF6C67627FB62F54E5AB8756A59AC /* UIColor+TDTTweak.m */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -160,8 +159,10 @@
 			children = (
 				8B6374C72DD88AC24D60EF3B12F4A184 /* TDTPhotoTweaks */,
 			);
+			indentWidth = 2;
 			name = "Development Pods";
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
@@ -207,7 +208,6 @@
 			children = (
 				4ECF79EBEDAB7E4CC49E88544F44BCD9 /* Classes */,
 			);
-			name = TDTPhotoTweaks;
 			path = TDTPhotoTweaks;
 			sourceTree = "<group>";
 		};
