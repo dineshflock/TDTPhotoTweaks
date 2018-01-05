@@ -21,6 +21,7 @@ extern const CGFloat MaxRotationAngle;
 
 - (void)tdt_CropEnded:(TDTCropView *)cropView;
 - (void)tdt_CropMoved:(TDTCropView *)cropView;
+- (void)tdt_CropBegan:(TDTCropView *)cropView;
 
 @end
 

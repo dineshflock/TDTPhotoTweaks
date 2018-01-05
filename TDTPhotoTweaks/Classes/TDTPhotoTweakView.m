@@ -214,6 +214,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   if ([touches count] == 1) {
     [self updateCropLines:NO];
+    if ([self.delegate respondsToSelector:@selector(tdt_CropBegan:)]) {
+      [self.delegate tdt_CropBegan:self];
+    }
   }
 }
 
@@ -224,6 +227,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   frame.size = CGSizeMake(frame.size.height * ration, frame.size.height);
   self.frame = frame;
   self.center = center;
+  if ([self.delegate respondsToSelector:@selector(tdt_CropBegan:)]) {
+    [self.delegate tdt_CropBegan:self];
+  }
   if ([self.delegate respondsToSelector:@selector(tdt_CropMoved:)]) {
     [self.delegate tdt_CropMoved:self];
   }
@@ -520,7 +526,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     [self updateMasks:NO];
     
     _slider = [[TDTCompassSlider alloc] initWithFrame:CGRectZero];
-    _slider.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) - 135);
+    [_slider setCenter:CGPointMake(_cropView.center.x, _cropView.frame.origin.y + _cropView.frame.size.height + _slider.frame.size.height/2.0)];
     _slider.delegate = self;
     [self addSubview:_slider];
     
@@ -571,6 +577,12 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 #pragma mark - Crop View Delegate
 
+- (void)tdt_CropBegan:(TDTCropView *)cropView {
+  [UIView animateWithDuration:0.25 animations:^{
+    self.slider.alpha = 0.0;
+  }];
+}
+
 - (void)tdt_CropMoved:(TDTCropView *)cropView {
   [self.slider setCenter:CGPointMake(cropView.center.x, cropView.frame.origin.y + cropView.frame.size.height + self.slider.frame.size.height/2.0)];
   [self updateMasks:NO];
@@ -608,6 +620,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   
   [UIView animateWithDuration:0.25 animations:^{
     // animate crop view
+    self.slider.alpha = 1.0;
     cropView.bounds = CGRectMake(0, 0, newCropBounds.size.width, newCropBounds.size.height);
     cropView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
     [self.slider setCenter:CGPointMake(self.cropView.center.x, self.cropView.frame.origin.y + self.cropView.frame.size.height + self.slider.frame.size.height/2.0)];
@@ -704,17 +717,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (void)rotateImage {
   self.numberRotations += 1;
   [UIView animateWithDuration:0.25 animations:^{
-    //    self.scrollView.transform = CGAffineTransformMakeRotation(self.angle);
-    //    self.scrollView.center = CGPointMake(CGRectGetWidth(self.frame) / 2, self.centerY);
-    //    self.scrollView.bounds = CGRectMake(0, 0, self.originalSize.width, self.originalSize.height);
-    //    self.scrollView.minimumZoomScale = 1;
-    //    [self.scrollView setZoomScale:1 animated:NO];
-    
-    //    self.cropView.frame = self.scrollView.frame;
-    //    self.cropView.center = self.scrollView.center;
     [self updateMasks:NO];
-    
-    //    [self.slider setValue:0 animated:YES];
     [self rotateWithAngle:self.angle];
   }];
 }
