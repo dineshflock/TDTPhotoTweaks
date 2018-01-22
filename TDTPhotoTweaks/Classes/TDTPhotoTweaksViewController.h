@@ -13,6 +13,11 @@
 @interface TDTPhotoTweaksViewController : UIViewController
 
 /**
+ Identifier for the controller.
+ */
+@property (nonatomic, copy) NSString *identifier;
+
+/**
  Image to process.
  */
 @property (nonatomic, strong, readonly) UIImage *image;
