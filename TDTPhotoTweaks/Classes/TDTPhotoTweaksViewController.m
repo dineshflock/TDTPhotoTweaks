@@ -80,15 +80,23 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
   
   [self.view addSubview:toolbar];
   
-  UIBarButtonItem *rotateOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"Rotate"
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                  action:@selector(rotateButtonTapped)];
+  UIImage *rotateImage = [UIImage imageNamed:@"rotate"
+                              inBundle:[NSBundle bundleForClass:[self class]]
+         compatibleWithTraitCollection:nil];
   
-  UIBarButtonItem *ratioOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"Ratio"
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(ratioButtonTapped)];
+  UIImage *ratioImage = [UIImage imageNamed:@"ratio"
+                              inBundle:[NSBundle bundleForClass:[self class]]
+         compatibleWithTraitCollection:nil];
+  
+  UIBarButtonItem *rotateOptionButton = [[UIBarButtonItem alloc] initWithImage:rotateImage
+                                                                         style:UIBarButtonItemStylePlain
+                                                                        target:self
+                                                                        action:@selector(rotateButtonTapped)];
+  
+  UIBarButtonItem *ratioOptionButton = [[UIBarButtonItem alloc] initWithImage:ratioImage
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(ratioButtonTapped)];
   
   UIBarButtonItem *resetOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"RESET"
                                                                         style:UIBarButtonItemStylePlain
