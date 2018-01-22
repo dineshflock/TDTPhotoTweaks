@@ -20,6 +20,7 @@
 
 @interface TDTCompassSlider : UIView
 
+@property (nonatomic, assign) CGFloat rotationLimit;
 @property (nonatomic, assign) CGFloat rotation;
 @property (nonatomic, weak) id <TDTCompassSliderDelegate> _Nullable delegate;
 

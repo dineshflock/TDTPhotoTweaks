@@ -24,13 +24,13 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
+    _rotationLimit = M_PI_4;
     [self setup];
   }
   return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
+- (instancetype)initWithCoder:(NSCoder *)coder {
   self = [super initWithCoder:coder];
   if (self) {
     [self setup];
@@ -38,14 +38,14 @@
   return self;
 }
 
--(void)setRotation:(CGFloat)rotation {
+- (void)setRotation:(CGFloat)rotation {
   if (_rotation != rotation) {
     _rotation = rotation;
     _sliderBGImageView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, _rotation);
   }
 }
 
--(CGSize)intrinsicContentSize {
+- (CGSize)intrinsicContentSize {
   return CGSizeMake(150, 50);
 }
 
@@ -75,7 +75,7 @@
   [self addSubview:_sliderBGImageView];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
   if ([self.delegate respondsToSelector:@selector(tdt_compassSliderBeginRotate:)]) {
     [self.delegate tdt_compassSliderBeginRotate:self];
   }
@@ -87,18 +87,20 @@
   startTransform = self.sliderBGImageView.transform;
 }
 
--(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
   CGPoint pt = [[touches anyObject] locationInView:self];
   float dx = pt.x  - self.sliderBGImageView.center.x;
   float dy = pt.y  - self.sliderBGImageView.center.y;
   float ang = atan2(dy,dx);
   float angleDifference = ang - deltaAngle;
+  if (ABS(temporaryRotation + angleDifference) > self.rotationLimit) {
+    return;
+  }
   self.rotation = (temporaryRotation + angleDifference);
   self.sliderBGImageView.transform = CGAffineTransformRotate(startTransform, angleDifference);
   if ([self.delegate respondsToSelector:@selector(tdt_compassSliderDidRotate:delta:)]) {
     [self.delegate tdt_compassSliderDidRotate:self delta:angleDifference];
   }
-  return;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
