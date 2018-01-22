@@ -8,6 +8,10 @@
 
 #import "TDTCompassSlider.h"
 
+static CGFloat const SliderDialHeight = 50.0;
+static CGFloat const SliderHeight = 70.0;
+static CGFloat const SliderWidth = 210.0;
+
 @interface TDTCompassSlider() {
   CGPoint touchesStartLocation;
   CGFloat deltaAngle;
@@ -16,6 +20,7 @@
 }
 
 @property (nonatomic, strong) UIImageView * sliderBGImageView;
+@property (nonatomic, strong) UIImageView * piviotImageView;
 
 @end
 
@@ -46,10 +51,19 @@
 }
 
 - (CGSize)intrinsicContentSize {
-  return CGSizeMake(150, 50);
+  return CGSizeMake(SliderWidth, SliderDialHeight);
 }
 
 - (CGRect)frameForSliderImageViewForImage:(UIImage *)image {
+  CGFloat originX = (- image.size.width + self.bounds.size.width)/2.0;
+  CGFloat originY = (- image.size.height + SliderDialHeight);
+  return CGRectMake(originX,
+                    originY,
+                    image.size.width,
+                    image.size.height);
+}
+
+- (CGRect)frameForPiviotImageViewPiviotImage:(UIImage *)image {
   CGFloat originX = (- image.size.width + self.bounds.size.width)/2.0;
   CGFloat originY = (- image.size.height + self.bounds.size.height);
   return CGRectMake(originX,
@@ -59,7 +73,7 @@
 }
 
 - (void)setup {
-  [self setFrame:CGRectMake(0, 0, 210.0, 50.0)];
+  [self setFrame:CGRectMake(0, 0, SliderWidth, SliderHeight)];
   [self setBackgroundColor:[UIColor clearColor]];
   [self setClipsToBounds:YES];
   
@@ -69,9 +83,18 @@
                               inBundle:[NSBundle bundleForClass:[self class]]
          compatibleWithTraitCollection:nil];
   
+  UIImage *piviotImage = [UIImage imageNamed:@"crop-reset-piviot"
+                                    inBundle:[NSBundle bundleForClass:[self class]]
+               compatibleWithTraitCollection:nil];
+  
   CGRect frame = [self frameForSliderImageViewForImage:image];
   _sliderBGImageView = [[UIImageView alloc] initWithFrame:frame];
+  
+  _piviotImageView = [[UIImageView alloc] initWithFrame:[self frameForPiviotImageViewPiviotImage:piviotImage]];
   [_sliderBGImageView setImage:image];
+  [_piviotImageView setImage:piviotImage];
+  
+  [self addSubview:_piviotImageView];
   [self addSubview:_sliderBGImageView];
 }
 
