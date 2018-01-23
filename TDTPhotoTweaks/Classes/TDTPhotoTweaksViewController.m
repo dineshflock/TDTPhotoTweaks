@@ -17,6 +17,8 @@ static NSString * const BarButtonTitleReset = @"RESET";
 @interface TDTPhotoTweaksViewController ()
 
 @property (strong, nonatomic) TDTPhotoTweakView *photoView;
+@property (strong, nonatomic) UIToolbar *actionToolbar;
+@property (strong, nonatomic) UIToolbar *tweakOptionToolbar;
 
 @end
 
@@ -25,10 +27,20 @@ static NSString * const BarButtonTitleReset = @"RESET";
 - (instancetype)initWithImage:(UIImage *)image {
   if (self = [super init]) {
     _image = image;
-    _autoSaveToLibray = YES;
+    _autoSaveToLibray = NO;
     _maxRotationAngle = MaxRotationAngle;
   }
   return self;
+}
+
+-(void)setTweakOptionToolbarTintColor:(UIColor *)tweakOptionToolbarTintColor {
+  _tweakOptionToolbarTintColor = tweakOptionToolbarTintColor;
+  [self.tweakOptionToolbar setTintColor:tweakOptionToolbarTintColor];
+}
+
+-(void)setActionToolbarTintColor:(UIColor *)actionToolbarTintColor {
+  _actionToolbarTintColor = actionToolbarTintColor;
+  [self.actionToolbar setTintColor:actionToolbarTintColor];
 }
 
 - (void)viewDidLoad {
@@ -51,43 +63,45 @@ static NSString * const BarButtonTitleReset = @"RESET";
                            CGRectGetHeight(self.view.bounds) - DefaultToolbarHeight,
                            CGRectGetWidth(self.view.bounds),
                            DefaultToolbarHeight);
-  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:rect];
-  [toolbar setTranslucent:NO];
-  toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
-  [self.view addSubview:toolbar];
+  self.actionToolbar = [[UIToolbar alloc] initWithFrame:rect];
+  [self.actionToolbar setTintColor:self.actionToolbarTintColor];
+  [self.actionToolbar setTranslucent:NO];
+  self.actionToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+  [self.view addSubview:self.actionToolbar];
   
   UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleCancel
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(cancelBtnTapped)];
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(cancelBtnTapped)];
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleDone
-                                                                    style:UIBarButtonItemStyleDone
-                                                                   target:self
-                                                                   action:@selector(saveBtnTapped)];
+                                                                 style:UIBarButtonItemStyleDone
+                                                                target:self
+                                                                action:@selector(saveBtnTapped)];
   UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  [toolbar setItems:@[cancelButton, flexibleSpace, doneButton]];
+  [self.actionToolbar setItems:@[cancelButton, flexibleSpace, doneButton]];
 }
 - (void)setupOptionsToolbar {
   CGRect rect = CGRectMake(0,
                            CGRectGetHeight(self.view.bounds) - 2*DefaultToolbarHeight,
                            CGRectGetWidth(self.view.bounds),
                            DefaultToolbarHeight);
-  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:rect];
-  [toolbar setTranslucent:YES];
-  [toolbar setBackgroundImage:[UIImage new]
-           forToolbarPosition:UIToolbarPositionAny
-                   barMetrics:UIBarMetricsDefault];
-  [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth];
+  self.tweakOptionToolbar = [[UIToolbar alloc] initWithFrame:rect];
+  [self.tweakOptionToolbar setTintColor:self.tweakOptionToolbarTintColor];
+  [self.tweakOptionToolbar setTranslucent:YES];
+  [self.tweakOptionToolbar setBackgroundImage:[UIImage new]
+                           forToolbarPosition:UIToolbarPositionAny
+                                   barMetrics:UIBarMetricsDefault];
+  [self.tweakOptionToolbar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth];
   
-  [self.view addSubview:toolbar];
+  [self.view addSubview:self.tweakOptionToolbar];
   
   UIImage *rotateImage = [UIImage imageNamed:@"rotate"
-                              inBundle:[NSBundle bundleForClass:[self class]]
-         compatibleWithTraitCollection:nil];
+                                    inBundle:[NSBundle bundleForClass:[self class]]
+               compatibleWithTraitCollection:nil];
   
   UIImage *ratioImage = [UIImage imageNamed:@"ratio"
-                              inBundle:[NSBundle bundleForClass:[self class]]
-         compatibleWithTraitCollection:nil];
+                                   inBundle:[NSBundle bundleForClass:[self class]]
+              compatibleWithTraitCollection:nil];
   
   UIBarButtonItem *rotateOptionButton = [[UIBarButtonItem alloc] initWithImage:rotateImage
                                                                          style:UIBarButtonItemStylePlain
@@ -110,7 +124,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
   
   UIBarButtonItem *flexibleSpaceOne = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   UIBarButtonItem *flexibleSpaceTwo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  [toolbar setItems:@[rotateOptionButton, flexibleSpaceOne, resetOptionButton, flexibleSpaceTwo, ratioOptionButton]];
+  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, resetOptionButton, flexibleSpaceTwo, ratioOptionButton]];
 }
 
 - (void)rotateButtonTapped {
@@ -119,8 +133,8 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 - (void)ratioButtonTapped {
   UIAlertController * optionsVC = [UIAlertController alertControllerWithTitle:nil
-                                                                       message:nil
-                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+                                                                      message:nil
+                                                               preferredStyle:UIAlertControllerStyleActionSheet];
   
   [optionsVC addAction:[UIAlertAction actionWithTitle:@"Original" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [self.photoView lockCropViewToRatio:self.image.size.width/self.image.size.height];
@@ -165,7 +179,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
 }
 
 - (void)resetButtonTapped {
-    [self.photoView reset];
+  [self.photoView reset];
+}
+
+-(void)setTweakOptionsToolbarTintColor:(UIColor *)tweakOptionsToolbarTintColor {
+  
 }
 
 -(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
@@ -235,20 +253,20 @@ static NSString * const BarButtonTitleReset = @"RESET";
   CGFloat rotation = 0.0;
   
   switch(orientation) {
-      case UIImageOrientationUp: {
-        rotation = 0;
-      } break;
-      case UIImageOrientationDown: {
-        rotation = M_PI;
-      } break;
-      case UIImageOrientationLeft:{
-        rotation = M_PI_2;
-        srcSize = CGSizeMake(size.height, size.width);
-      } break;
-      case UIImageOrientationRight: {
-        rotation = -M_PI_2;
-        srcSize = CGSizeMake(size.height, size.width);
-      } break;
+    case UIImageOrientationUp: {
+      rotation = 0;
+    } break;
+    case UIImageOrientationDown: {
+      rotation = M_PI;
+    } break;
+    case UIImageOrientationLeft:{
+      rotation = M_PI_2;
+      srcSize = CGSizeMake(size.height, size.width);
+    } break;
+    case UIImageOrientationRight: {
+      rotation = -M_PI_2;
+      srcSize = CGSizeMake(size.height, size.width);
+    } break;
     default:
       break;
   }

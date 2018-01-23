@@ -23,12 +23,12 @@
 @property (nonatomic, strong, readonly) UIImage *image;
 
 /**
- Flag indicating whether the image cropped will be saved to photo library automatically. Defaults to YES.
+ Flag indicating whether the image cropped will be saved to photo library automatically. Defaults to NO.
  */
 @property (nonatomic, assign) BOOL autoSaveToLibray;
 
 /**
- Max rotation angle
+ Max rotation angle, Defauts to 45 Degrees
  */
 @property (nonatomic, assign) CGFloat maxRotationAngle;
 
@@ -38,39 +38,14 @@
 @property (nonatomic, weak) id<TDTPhotoTweaksViewControllerDelegate> delegate;
 
 /**
- Save action button's default title color
+ Tint color of toolbar that displays options to rotate reset and ratios options.
  */
-@property (nonatomic, strong) UIColor *saveButtonTitleColor;
+@property (nonatomic, strong) UIColor *tweakOptionToolbarTintColor;
 
 /**
- Save action button's highlight title color
+ Tint color of the toobar that dispalys options to cancel and finish up the tweaking
  */
-@property (nonatomic, strong) UIColor *saveButtonHighlightTitleColor;
-
-/**
- Cancel action button's default title color
- */
-@property (nonatomic, strong) UIColor *cancelButtonTitleColor;
-
-/**
- Cancel action button's highlight title color
- */
-@property (nonatomic, strong) UIColor *cancelButtonHighlightTitleColor;
-
-/**
- Reset action button's default title color
- */
-@property (nonatomic, strong) UIColor *resetButtonTitleColor;
-
-/**
- Reset action button's highlight title color
- */
-@property (nonatomic, strong) UIColor *resetButtonHighlightTitleColor;
-
-/**
- Slider tint color
- */
-@property (nonatomic, strong) UIColor *sliderTintColor;
+@property (nonatomic, strong) UIColor *actionToolbarTintColor;
 
 /**
  Creates a photo tweaks view controller with the image to process.
