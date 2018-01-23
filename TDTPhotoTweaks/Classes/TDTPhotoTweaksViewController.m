@@ -234,8 +234,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
   CGSize srcSize = size;
   CGFloat rotation = 0.0;
   
-  switch(orientation)
-  {
+  switch(orientation) {
       case UIImageOrientationUp: {
         rotation = 0;
       } break;
