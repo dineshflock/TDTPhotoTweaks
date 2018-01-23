@@ -12,6 +12,7 @@ static const CGFloat DefaultToolbarHeight = 44.0;
 
 static NSString * const BarButtonTitleCancel = @"Cancel";
 static NSString * const BarButtonTitleDone = @"Done Cropping";
+static NSString * const BarButtonTitleReset = @"RESET";
 
 @interface TDTPhotoTweaksViewController ()
 
@@ -98,7 +99,7 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
                                                                        target:self
                                                                        action:@selector(ratioButtonTapped)];
   
-  UIBarButtonItem *resetOptionButton = [[UIBarButtonItem alloc] initWithTitle:@"RESET"
+  UIBarButtonItem *resetOptionButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleReset
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
                                                                        action:@selector(resetButtonTapped)];
