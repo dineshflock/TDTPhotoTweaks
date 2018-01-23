@@ -220,11 +220,15 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   }
 }
 
-- (void)lockToRatio:(CGFloat)ration {
+- (void)lockToRatio:(CGFloat)ratio {
+  if (ratio < 0) {
+    self.isLocked = NO;
+    return;
+  }
   self.isLocked = YES;
   CGRect frame = self.frame;
   CGPoint center = self.center;
-  frame.size = CGSizeMake(frame.size.height * ration, frame.size.height);
+  frame.size = CGSizeMake(frame.size.height * ratio, frame.size.height);
   self.frame = frame;
   self.center = center;
   if ([self.delegate respondsToSelector:@selector(tdt_CropBegan:)]) {

@@ -27,7 +27,7 @@ extern const CGFloat MaxRotationAngle;
 
 @interface TDTCropView : UIView
 
-- (void)lockToRatio:(CGFloat)ration;
+- (void)lockToRatio:(CGFloat)ratio;
 
 @end
 

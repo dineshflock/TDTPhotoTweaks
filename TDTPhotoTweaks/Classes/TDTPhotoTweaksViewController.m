@@ -120,6 +120,11 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
   UIAlertController * optionsVC = [UIAlertController alertControllerWithTitle:nil
                                                                        message:nil
                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Original" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:self.image.size.width/self.image.size.height];
+  }]];
+  
   [optionsVC addAction:[UIAlertAction actionWithTitle:@"Square" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [self.photoView lockCropViewToRatio:1.0];
   }]];
@@ -146,6 +151,10 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
   
   [optionsVC addAction:[UIAlertAction actionWithTitle:@"16:9" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [self.photoView lockCropViewToRatio:16.0/9.0];
+  }]];
+  
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"None" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.photoView lockCropViewToRatio:-1.0];
   }]];
   
   [optionsVC addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL]];
