@@ -59,8 +59,6 @@ static NSString * const ControllerTitle = @"Sample";
 - (void)cropBarButtonTapped {
   TDTPhotoTweaksViewController *photoTweaksViewController = [[TDTPhotoTweaksViewController alloc] initWithImage:_imageView.image];
   photoTweaksViewController.delegate = self;
-  photoTweaksViewController.autoSaveToLibray = YES;
-  photoTweaksViewController.maxRotationAngle = M_PI_4;
   [self.navigationController presentViewController:photoTweaksViewController
                                           animated:YES
                                         completion:NULL];
