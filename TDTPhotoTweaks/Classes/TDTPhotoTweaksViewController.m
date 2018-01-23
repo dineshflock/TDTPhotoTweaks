@@ -167,12 +167,24 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
     [self.photoView reset];
 }
 
+-(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+  BOOL isOrientationChange = (self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass) || (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass);
+  if (isOrientationChange && self.photoView != nil) {
+    [self.photoView removeFromSuperview];
+    [self setupPhotoView];
+  }
+}
+
 - (void)setupSubviews {
-  self.photoView = [[TDTPhotoTweakView alloc] initWithFrame:self.view.bounds image:self.image maxRotationAngle:self.maxRotationAngle];
-  self.photoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  [self.view addSubview:self.photoView];
+  [self setupPhotoView];
   [self setupOptionsToolbar];
   [self setupToolbar];
+}
+
+-(void)setupPhotoView {
+  self.photoView = [[TDTPhotoTweakView alloc] initWithFrame:self.view.bounds image:self.image maxRotationAngle:self.maxRotationAngle];
+  self.photoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  [self.view insertSubview:self.photoView atIndex:0];
 }
 
 - (void)cancelBtnTapped {
