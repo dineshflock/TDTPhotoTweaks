@@ -52,7 +52,7 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
                            DefaultToolbarHeight);
   UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:rect];
   [toolbar setTranslucent:NO];
-  toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+  toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
   [self.view addSubview:toolbar];
   
   UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleCancel
@@ -76,7 +76,7 @@ static NSString * const BarButtonTitleDone = @"Done Cropping";
   [toolbar setBackgroundImage:[UIImage new]
            forToolbarPosition:UIToolbarPositionAny
                    barMetrics:UIBarMetricsDefault];
-  [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+  [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth];
   
   [self.view addSubview:toolbar];
   
