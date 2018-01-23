@@ -617,7 +617,7 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   self.scrollView.bounds = CGRectMake(0, 0, width, height);
   CGPoint newContentOffset = CGPointMake(contentOffsetCenter.x - self.scrollView.bounds.size.width / 2, contentOffsetCenter.y - self.scrollView.bounds.size.height / 2);
   self.scrollView.contentOffset = newContentOffset;
-  
+  self.scrollView.minimumZoomScale = [self.scrollView zoomScaleToBound];
   [UIView animateWithDuration:0.25 animations:^{
     // animate crop view
     self.slider.alpha = 1.0;
@@ -700,8 +700,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   BOOL shouldScale = self.scrollView.contentSize.width / self.scrollView.bounds.size.width <= 1.0 || self.scrollView.contentSize.height / self.scrollView.bounds.size.height <= 1.0;
   if (shouldScale) {
     [self.scrollView setZoomScale:[self.scrollView zoomScaleToBound] animated:NO];
-    self.scrollView.minimumZoomScale = [self.scrollView zoomScaleToBound];
+    self.manualZoomed = NO;
   }
+  self.scrollView.minimumZoomScale = [self.scrollView zoomScaleToBound];
   
   [self checkScrollViewContentOffset];
 }
