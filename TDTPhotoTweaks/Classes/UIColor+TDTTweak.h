@@ -7,15 +7,6 @@
 
 @interface UIColor (TDTTweak)
 
-+ (UIColor *)cancelButtonColor;
-+ (UIColor *)cancelButtonHighlightedColor;
-
-+ (UIColor *)saveButtonColor;
-+ (UIColor *)saveButtonHighlightedColor;
-
-+ (UIColor *)resetButtonColor;
-+ (UIColor *)resetButtonHighlightedColor;
-
 + (UIColor *)cropLineColor;
 + (UIColor *)gridLineColor;
 + (UIColor *)maskColor;
