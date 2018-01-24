@@ -88,6 +88,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
   self.tweakOptionToolbar = [[UIToolbar alloc] initWithFrame:rect];
   [self.tweakOptionToolbar setTintColor:self.tweakOptionToolbarTintColor];
   [self.tweakOptionToolbar setTranslucent:YES];
+  [self.tweakOptionToolbar setClipsToBounds:YES];
   [self.tweakOptionToolbar setBackgroundImage:[UIImage new]
                            forToolbarPosition:UIToolbarPositionAny
                                    barMetrics:UIBarMetricsDefault];
