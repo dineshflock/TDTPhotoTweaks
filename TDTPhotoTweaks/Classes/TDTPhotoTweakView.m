@@ -539,15 +539,15 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   return self;
 }
 
-- (void)tdt_compassSliderEndRotate:(TDTCompassSlider *)slider {
+- (void)compassSliderEndRotate:(TDTCompassSlider *)slider {
   [self.cropView dismissGridLines];
 }
 
-- (void)tdt_compassSliderBeginRotate:(TDTCompassSlider *)slider {
+- (void)compassSliderBeginRotate:(TDTCompassSlider *)slider {
   
 }
 
--(void)tdt_compassSliderDidRotate:(TDTCompassSlider *)slider delta:(CGFloat)delta {
+-(void)compassSliderDidRotate:(TDTCompassSlider *)slider delta:(CGFloat)delta {
   // update masks
   [self updateMasks:NO];
   

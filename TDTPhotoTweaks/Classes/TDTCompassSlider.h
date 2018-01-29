@@ -12,9 +12,9 @@
 
 @protocol TDTCompassSliderDelegate <NSObject>
 
-- (void)tdt_compassSliderBeginRotate:(TDTCompassSlider *_Nonnull)slider;
-- (void)tdt_compassSliderDidRotate:(TDTCompassSlider *_Nonnull)slider delta:(CGFloat)delta;
-- (void)tdt_compassSliderEndRotate:(TDTCompassSlider *_Nonnull)slider;
+- (void)compassSliderBeginRotate:(TDTCompassSlider *_Nonnull)slider;
+- (void)compassSliderDidRotate:(TDTCompassSlider *_Nonnull)slider delta:(CGFloat)delta;
+- (void)compassSliderEndRotate:(TDTCompassSlider *_Nonnull)slider;
 
 @end
 
