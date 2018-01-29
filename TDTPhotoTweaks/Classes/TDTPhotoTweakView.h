@@ -39,8 +39,6 @@ extern const CGFloat MaxRotationAngle;
 @property (nonatomic, strong, readonly) TDTCropView *cropView;
 @property (nonatomic, strong, readonly) TDTPhotoContentView *photoContentView;
 @property (nonatomic, strong, readonly) TDTCompassSlider *slider;
-@property (nonatomic, strong, readonly) UIButton *resetBtn;
-
 
 - (instancetype)initWithFrame:(CGRect)frame
                         image:(UIImage *)image
