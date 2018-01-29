@@ -183,10 +183,6 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [self.photoView reset];
 }
 
--(void)setTweakOptionsToolbarTintColor:(UIColor *)tweakOptionsToolbarTintColor {
-  
-}
-
 -(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
   BOOL isOrientationChange = (self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass) || (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass);
   if (isOrientationChange && self.photoView != nil) {
