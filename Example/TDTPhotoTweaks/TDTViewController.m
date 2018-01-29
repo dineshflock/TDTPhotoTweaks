@@ -70,11 +70,11 @@ static NSString * const ControllerTitle = @"Sample";
 
 // Delegate Methods
 
-- (void)tdt_PhotoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller {
+- (void)photoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller {
   [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)tdt_PhotoTweaksController:(TDTPhotoTweaksViewController *)controller
+- (void)photoTweaksController:(TDTPhotoTweaksViewController *)controller
         didFinishWithCroppedImage:(UIImage *)croppedImage {
   [_imageView setImage:croppedImage];
   [controller dismissViewControllerAnimated:YES completion:NULL];

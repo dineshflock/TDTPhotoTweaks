@@ -204,7 +204,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
 }
 
 - (void)cancelButtonTapped {
-  [self.delegate tdt_PhotoTweaksControllerDidCancel:self];
+  [self.delegate photoTweaksControllerDidCancel:self];
 }
 
 - (void)saveButtonTapped {
@@ -242,7 +242,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
     }];
   }
   
-  [self.delegate tdt_PhotoTweaksController:self didFinishWithCroppedImage:image];
+  [self.delegate photoTweaksController:self didFinishWithCroppedImage:image];
 }
 
 - (CGImageRef)newScaledImage:(CGImageRef)source withOrientation:(UIImageOrientation)orientation toSize:(CGSize)size withQuality:(CGInterpolationQuality)quality {

@@ -62,11 +62,11 @@
 /**
  Called on image cropped.
  */
-- (void)tdt_PhotoTweaksController:(TDTPhotoTweaksViewController *)controller didFinishWithCroppedImage:(UIImage *)croppedImage;
+- (void)photoTweaksController:(TDTPhotoTweaksViewController *)controller didFinishWithCroppedImage:(UIImage *)croppedImage;
 
 /**
  Called on cropping image canceled
  */
-- (void)tdt_PhotoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller;
+- (void)photoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller;
 
 @end
