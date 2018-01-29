@@ -72,11 +72,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
   UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleCancel
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
-                                                                  action:@selector(cancelBtnTapped)];
+                                                                  action:@selector(cancelButtonTapped)];
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleDone
                                                                  style:UIBarButtonItemStyleDone
                                                                 target:self
-                                                                action:@selector(saveBtnTapped)];
+                                                                action:@selector(saveButtonTapped)];
   UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   [self.actionToolbar setItems:@[cancelButton, flexibleSpace, doneButton]];
 }
@@ -183,10 +183,6 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [self.photoView reset];
 }
 
--(void)setTweakOptionsToolbarTintColor:(UIColor *)tweakOptionsToolbarTintColor {
-  
-}
-
 -(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
   BOOL isOrientationChange = (self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass) || (self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass);
   if (isOrientationChange && self.photoView != nil) {
@@ -207,11 +203,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [self.view insertSubview:self.photoView atIndex:0];
 }
 
-- (void)cancelBtnTapped {
-  [self.delegate tdt_PhotoTweaksControllerDidCancel:self];
+- (void)cancelButtonTapped {
+  [self.delegate photoTweaksControllerDidCancel:self];
 }
 
-- (void)saveBtnTapped {
+- (void)saveButtonTapped {
   CGAffineTransform transform = CGAffineTransformIdentity;
   
   // translate
@@ -246,7 +242,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
     }];
   }
   
-  [self.delegate tdt_PhotoTweaksController:self didFinishWithCroppedImage:image];
+  [self.delegate photoTweaksController:self didFinishWithCroppedImage:image];
 }
 
 - (CGImageRef)newScaledImage:(CGImageRef)source withOrientation:(UIImageOrientation)orientation toSize:(CGSize)size withQuality:(CGInterpolationQuality)quality {
@@ -348,10 +344,6 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
   return UIStatusBarStyleLightContent;
-}
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
 }
 
 @end

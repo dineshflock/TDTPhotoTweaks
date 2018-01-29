@@ -214,8 +214,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   if ([touches count] == 1) {
     [self updateCropLines:NO];
-    if ([self.delegate respondsToSelector:@selector(tdt_CropBegan:)]) {
-      [self.delegate tdt_CropBegan:self];
+    if ([self.delegate respondsToSelector:@selector(cropBegan:)]) {
+      [self.delegate cropBegan:self];
     }
   }
 }
@@ -231,14 +231,14 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   frame.size = CGSizeMake(frame.size.height * ratio, frame.size.height);
   self.frame = frame;
   self.center = center;
-  if ([self.delegate respondsToSelector:@selector(tdt_CropBegan:)]) {
-    [self.delegate tdt_CropBegan:self];
+  if ([self.delegate respondsToSelector:@selector(cropBegan:)]) {
+    [self.delegate cropBegan:self];
   }
-  if ([self.delegate respondsToSelector:@selector(tdt_CropMoved:)]) {
-    [self.delegate tdt_CropMoved:self];
+  if ([self.delegate respondsToSelector:@selector(cropMoved:)]) {
+    [self.delegate cropMoved:self];
   }
-  if ([self.delegate respondsToSelector:@selector(tdt_CropEnded:)]) {
-    [self.delegate tdt_CropEnded:self];
+  if ([self.delegate respondsToSelector:@selector(cropEnded:)]) {
+    [self.delegate cropEnded:self];
   }
 }
 
@@ -312,15 +312,15 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     // update crop lines
     [self updateCropLines:NO];
     
-    if ([self.delegate respondsToSelector:@selector(tdt_CropMoved:)]) {
-      [self.delegate tdt_CropMoved:self];
+    if ([self.delegate respondsToSelector:@selector(cropMoved:)]) {
+      [self.delegate cropMoved:self];
     }
   }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-  if ([self.delegate respondsToSelector:@selector(tdt_CropEnded:)]) {
-    [self.delegate tdt_CropEnded:self];
+  if ([self.delegate respondsToSelector:@selector(cropEnded:)]) {
+    [self.delegate cropEnded:self];
   }
 }
 
@@ -539,15 +539,15 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
   return self;
 }
 
-- (void)tdt_compassSliderEndRotate:(TDTCompassSlider *)slider {
+- (void)compassSliderEndRotate:(TDTCompassSlider *)slider {
   [self.cropView dismissGridLines];
 }
 
-- (void)tdt_compassSliderBeginRotate:(TDTCompassSlider *)slider {
+- (void)compassSliderBeginRotate:(TDTCompassSlider *)slider {
   
 }
 
--(void)tdt_compassSliderDidRotate:(TDTCompassSlider *)slider delta:(CGFloat)delta {
+-(void)compassSliderDidRotate:(TDTCompassSlider *)slider delta:(CGFloat)delta {
   // update masks
   [self updateMasks:NO];
   
@@ -581,18 +581,18 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 #pragma mark - Crop View Delegate
 
-- (void)tdt_CropBegan:(TDTCropView *)cropView {
+- (void)cropBegan:(TDTCropView *)cropView {
   [UIView animateWithDuration:0.25 animations:^{
     self.slider.alpha = 0.0;
   }];
 }
 
-- (void)tdt_CropMoved:(TDTCropView *)cropView {
+- (void)cropMoved:(TDTCropView *)cropView {
   [self.slider setCenter:CGPointMake(cropView.center.x, cropView.frame.origin.y + cropView.frame.size.height + self.slider.frame.size.height/2.0)];
   [self updateMasks:NO];
 }
 
-- (void)tdt_CropEnded:(TDTCropView *)cropView {
+- (void)cropEnded:(TDTCropView *)cropView {
   CGFloat scaleX = self.originalSize.width / cropView.bounds.size.width;
   CGFloat scaleY = self.originalSize.height / cropView.bounds.size.height;
   CGFloat scale = MIN(scaleX, scaleY);

@@ -43,7 +43,6 @@ static NSString * const ControllerTitle = @"Sample";
   [self setupNavigationItem];
   [self setupImageView];
   [self resetImageInImageView];
-  [self testSlider];
 }
 
 - (void)setupNavigationItem {
@@ -54,7 +53,7 @@ static NSString * const ControllerTitle = @"Sample";
   self.navigationItem.leftBarButtonItem = resetButton;
 }
 
-/// Bar button actions
+// Bar button actions
 
 - (void)cropBarButtonTapped {
   TDTPhotoTweaksViewController *photoTweaksViewController = [[TDTPhotoTweaksViewController alloc] initWithImage:_imageView.image];
@@ -70,23 +69,14 @@ static NSString * const ControllerTitle = @"Sample";
 
 // Delegate Methods
 
-- (void)tdt_PhotoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller {
+- (void)photoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller {
   [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)tdt_PhotoTweaksController:(TDTPhotoTweaksViewController *)controller
+- (void)photoTweaksController:(TDTPhotoTweaksViewController *)controller
         didFinishWithCroppedImage:(UIImage *)croppedImage {
   [_imageView setImage:croppedImage];
   [controller dismissViewControllerAnimated:YES completion:NULL];
 }
-
-- (void)testSlider {
-  TDTCompassSlider * slider = [[TDTCompassSlider alloc] initWithFrame:CGRectZero];
-  [self.view addSubview:slider];
-  slider.center = self.view.center;
-}
-
-
-
 
 @end

@@ -99,8 +99,8 @@ static CGFloat const SliderWidth = 210.0;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  if ([self.delegate respondsToSelector:@selector(tdt_compassSliderBeginRotate:)]) {
-    [self.delegate tdt_compassSliderBeginRotate:self];
+  if ([self.delegate respondsToSelector:@selector(compassSliderBeginRotate:)]) {
+    [self.delegate compassSliderBeginRotate:self];
   }
   CGPoint touchPoint = [[touches anyObject] locationInView:self];
   float dx = touchPoint.x - self.sliderBGImageView.center.x;
@@ -121,14 +121,14 @@ static CGFloat const SliderWidth = 210.0;
   }
   self.rotation = (temporaryRotation + angleDifference);
   self.sliderBGImageView.transform = CGAffineTransformRotate(startTransform, angleDifference);
-  if ([self.delegate respondsToSelector:@selector(tdt_compassSliderDidRotate:delta:)]) {
-    [self.delegate tdt_compassSliderDidRotate:self delta:angleDifference];
+  if ([self.delegate respondsToSelector:@selector(compassSliderDidRotate:delta:)]) {
+    [self.delegate compassSliderDidRotate:self delta:angleDifference];
   }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  if ([self.delegate respondsToSelector:@selector(tdt_compassSliderEndRotate:)]) {
-    [self.delegate tdt_compassSliderEndRotate:self];
+  if ([self.delegate respondsToSelector:@selector(compassSliderEndRotate:)]) {
+    [self.delegate compassSliderEndRotate:self];
   }
 }
 
