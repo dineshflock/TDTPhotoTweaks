@@ -72,11 +72,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
   UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleCancel
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
-                                                                  action:@selector(cancelBtnTapped)];
+                                                                  action:@selector(cancelButtonTapped)];
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleDone
                                                                  style:UIBarButtonItemStyleDone
                                                                 target:self
-                                                                action:@selector(saveBtnTapped)];
+                                                                action:@selector(saveButtonTapped)];
   UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   [self.actionToolbar setItems:@[cancelButton, flexibleSpace, doneButton]];
 }
@@ -203,11 +203,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [self.view insertSubview:self.photoView atIndex:0];
 }
 
-- (void)cancelBtnTapped {
+- (void)cancelButtonTapped {
   [self.delegate tdt_PhotoTweaksControllerDidCancel:self];
 }
 
-- (void)saveBtnTapped {
+- (void)saveButtonTapped {
   CGAffineTransform transform = CGAffineTransformIdentity;
   
   // translate
