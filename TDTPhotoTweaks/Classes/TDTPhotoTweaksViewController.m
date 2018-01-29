@@ -346,8 +346,4 @@ static NSString * const BarButtonTitleReset = @"RESET";
   return UIStatusBarStyleLightContent;
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-}
-
 @end
