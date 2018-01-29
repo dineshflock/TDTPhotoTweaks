@@ -53,7 +53,7 @@ static NSString * const ControllerTitle = @"Sample";
   self.navigationItem.leftBarButtonItem = resetButton;
 }
 
-/// Bar button actions
+// Bar button actions
 
 - (void)cropBarButtonTapped {
   TDTPhotoTweaksViewController *photoTweaksViewController = [[TDTPhotoTweaksViewController alloc] initWithImage:_imageView.image];
