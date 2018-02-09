@@ -9,11 +9,19 @@
 extern const CGFloat MaxRotationAngle;
 
 @class TDTCropView;
+@class TDTPhotoTweakView;
 
 @interface TDTPhotoContentView : UIView
 
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIImage *image;
+
+@end
+
+@protocol TDTPhotoTweakViewChangeListner <NSObject>
+
+- (void)photoTweakViewDidUndergoChange:(TDTPhotoTweakView *)photoTweakView;
+- (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView;
 
 @end
 
@@ -39,6 +47,9 @@ extern const CGFloat MaxRotationAngle;
 @property (nonatomic, strong, readonly) TDTCropView *cropView;
 @property (nonatomic, strong, readonly) TDTPhotoContentView *photoContentView;
 @property (nonatomic, strong, readonly) TDTCompassSlider *slider;
+
+@property (nonatomic, weak) id<TDTPhotoTweakViewChangeListner> changeListner;
+
 
 - (instancetype)initWithFrame:(CGRect)frame
                         image:(UIImage *)image
