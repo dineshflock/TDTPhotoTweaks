@@ -540,6 +540,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)compassSliderEndRotate:(TDTCompassSlider *)slider {
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
+    [self.changeListner photoTweakViewDidUndergoChange:self];
+  }
   [self.cropView dismissGridLines];
 }
 
@@ -593,6 +596,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)cropEnded:(TDTCropView *)cropView {
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
+    [self.changeListner photoTweakViewDidUndergoChange:self];
+  }
   CGFloat scaleX = self.originalSize.width / cropView.bounds.size.width;
   CGFloat scaleY = self.originalSize.height / cropView.bounds.size.height;
   CGFloat scale = MIN(scaleX, scaleY);
@@ -720,6 +726,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)rotateImage {
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
+    [self.changeListner photoTweakViewDidUndergoChange:self];
+  }
   self.numberRotations += 1;
   [UIView animateWithDuration:0.25 animations:^{
     [self updateMasks:NO];
@@ -728,10 +737,16 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)lockCropViewToRatio:(CGFloat)ratio {
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
+    [self.changeListner photoTweakViewDidUndergoChange:self];
+  }
   [self.cropView lockToRatio:ratio];
 }
 
 - (void)reset {
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoReset:)]) {
+    [self.changeListner photoTweakViewDidUndergoReset:self];
+  }
   [UIView animateWithDuration:0.25 animations:^{
     self.angle = 0;
     self.cropView.isLocked = NO;

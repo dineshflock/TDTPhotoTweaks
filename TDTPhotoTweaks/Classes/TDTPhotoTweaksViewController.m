@@ -14,11 +14,13 @@ static NSString * const BarButtonTitleCancel = @"Cancel";
 static NSString * const BarButtonTitleDone = @"Done Cropping";
 static NSString * const BarButtonTitleReset = @"RESET";
 
-@interface TDTPhotoTweaksViewController ()
+@interface TDTPhotoTweaksViewController () <TDTPhotoTweakViewChangeListner>
 
 @property (strong, nonatomic) TDTPhotoTweakView *photoView;
 @property (strong, nonatomic) UIToolbar *actionToolbar;
 @property (strong, nonatomic) UIToolbar *tweakOptionToolbar;
+
+@property (strong, nonatomic) UIBarButtonItem *resetTweakOptionBarButton;
 
 @end
 
@@ -115,18 +117,36 @@ static NSString * const BarButtonTitleReset = @"RESET";
                                                                        target:self
                                                                        action:@selector(ratioButtonTapped)];
   
-  UIBarButtonItem *resetOptionButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleReset
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(resetButtonTapped)];
+  UIBarButtonItem *flexibleSpaceOne = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIBarButtonItem *flexibleSpaceTwo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, flexibleSpaceTwo, ratioOptionButton]];
+}
+
+- (void)hideResetBarButton:(BOOL)hidden {
+  if (hidden && [self.tweakOptionToolbar.items containsObject:self.resetTweakOptionBarButton]) {
+    NSMutableArray *items = self.tweakOptionToolbar.items.mutableCopy;
+    [items removeObject:self.resetTweakOptionBarButton];
+    [self.tweakOptionToolbar setItems:items animated:NO];
+  } else if (!hidden && ![self.tweakOptionToolbar.items containsObject:self.resetTweakOptionBarButton]) {
+    NSMutableArray *items = self.tweakOptionToolbar.items.mutableCopy;
+    [items insertObject:self.resetTweakOptionBarButton atIndex:2];
+    [self.tweakOptionToolbar setItems:items animated:NO];
+  }
+}
+
+- (UIBarButtonItem *)resetTweakOptionBarButton {
+  if (_resetTweakOptionBarButton != nil) {
+    return _resetTweakOptionBarButton;
+  }
+  _resetTweakOptionBarButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleReset
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(resetButtonTapped)];
   NSUInteger fontSize = 14.0;
   UIFont *font = [UIFont systemFontOfSize:fontSize];
   NSDictionary *attributes = @{NSFontAttributeName: font};
-  [resetOptionButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
-  
-  UIBarButtonItem *flexibleSpaceOne = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  UIBarButtonItem *flexibleSpaceTwo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, resetOptionButton, flexibleSpaceTwo, ratioOptionButton]];
+  [_resetTweakOptionBarButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
+  return _resetTweakOptionBarButton;
 }
 
 - (void)rotateButtonTapped {
@@ -200,6 +220,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 -(void)setupPhotoView {
   self.photoView = [[TDTPhotoTweakView alloc] initWithFrame:self.view.bounds image:self.image maxRotationAngle:self.maxRotationAngle];
+  self.photoView.changeListner = self;
   self.photoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   [self.view insertSubview:self.photoView atIndex:0];
 }
@@ -345,6 +366,20 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
   return UIStatusBarStyleLightContent;
+}
+
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Change listner on photo tweak view
+
+- (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView {
+  [self hideResetBarButton:YES];
+}
+
+- (void)photoTweakViewDidUndergoChange:(TDTPhotoTweakView *)photoTweakView {
+  [self hideResetBarButton:NO];
 }
 
 @end
