@@ -80,6 +80,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
   UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   [self.actionToolbar setItems:@[cancelButton, flexibleSpace, doneButton]];
 }
+
 - (void)setupOptionsToolbar {
   CGRect rect = CGRectMake(0,
                            CGRectGetHeight(self.view.bounds) - 2*DefaultToolbarHeight,
