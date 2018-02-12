@@ -31,9 +31,21 @@ static NSString * const BarButtonTitleReset = @"RESET";
     _image = image;
     _autoSaveToLibray = NO;
     _maxRotationAngle = MaxRotationAngle;
+    _cropOptions = [self defaultCropOptions];
   }
   return self;
 }
+
+- (NSArray *)defaultCropOptions {
+  NSMutableArray *array = [NSMutableArray new];
+  [array addObject:[[TDTCropRatioOption alloc] initWithName:@"Original" widthHeightRatio:self.image.size.width/self.image.size.height]];
+  [array addObject:[[TDTCropRatioOption alloc] initWithName:@"Square" widthHeightRatio:1.0]];
+  [array addObject:[[TDTCropRatioOption alloc] initWithName:@"3:2" widthHeightRatio:3.0/2.0]];
+  [array addObject:[[TDTCropRatioOption alloc] initWithName:@"4:3" widthHeightRatio:4.0/3.0]];
+  [array addObject:[TDTCropRatioOption cropOptionNone]];
+  return array;
+}
+
 
 -(void)setTweakOptionToolbarTintColor:(UIColor *)tweakOptionToolbarTintColor {
   _tweakOptionToolbarTintColor = tweakOptionToolbarTintColor;
@@ -154,50 +166,23 @@ static NSString * const BarButtonTitleReset = @"RESET";
 }
 
 - (void)ratioButtonTapped {
-  UIAlertController * optionsVC = [UIAlertController alertControllerWithTitle:nil
-                                                                      message:nil
-                                                               preferredStyle:UIAlertControllerStyleActionSheet];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Original" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:self.image.size.width/self.image.size.height];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Square" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:1.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"3:2" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:3.0/2.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"5:3" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:5.0/3.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"4:3" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:4.0/3.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"5:4" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:5.0/4.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"7:5" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:7.0/5.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"16:9" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:16.0/9.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"None" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.photoView lockCropViewToRatio:-1.0];
-  }]];
-  
-  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL]];
-  
+  if (self.cropOptions.count <= 0) {
+    return;
+  }
+  UIAlertController *optionsVC = [UIAlertController alertControllerWithTitle:nil
+                                                                     message:nil
+                                                              preferredStyle:UIAlertControllerStyleActionSheet];
+  for (TDTCropRatioOption *option in self.cropOptions) {
+    [optionsVC addAction:[UIAlertAction actionWithTitle:option.name
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                  [self.photoView lockCropViewToRatio:option.widthToHeightRatio];
+                                                }]];
+  }
+  [optionsVC addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                style:UIAlertActionStyleCancel
+                                              handler:NULL]];
   [self presentViewController:optionsVC animated:YES completion:NULL];
-  
 }
 
 - (void)resetButtonTapped {
