@@ -4,6 +4,7 @@
 //  Heavily inspired from https://github.com/itouch2/PhotoTweaks
 
 #import <UIKit/UIKit.h>
+#import "TDTCropRatioOption.h"
 
 @protocol TDTPhotoTweaksViewControllerDelegate;
 
@@ -16,6 +17,11 @@
  Identifier for the controller.
  */
 @property (nonatomic, copy) NSString *identifier;
+
+/**
+ Crop ratios for the controller.
+ */
+@property (nonatomic, copy) NSArray<TDTCropRatioOption *> *cropOptions;
 
 /**
  Image to process.

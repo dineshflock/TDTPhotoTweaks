@@ -11,6 +11,8 @@
 		35EFB15509EE8A2B35F3B5D548BC5B6C /* UIColor+TDTTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6AF6C67627FB62F54E5AB8756A59AC /* UIColor+TDTTweak.m */; };
 		67B5C699D946D03EAAA60F392BD28519 /* TDTCompassSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 8116EF701DC8B9BE676E23E6BC482A09 /* TDTCompassSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E404EF5F099BD9063B73B29EEDA5C9F /* Pods-TDTPhotoTweaks_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D2EBC2AD8539A16A082C4542260B75 /* Pods-TDTPhotoTweaks_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		713FA30E2031AF1C008983D3 /* TDTCropRatioOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 713FA30B2031AF1C008983D3 /* TDTCropRatioOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		713FA3102031AF1C008983D3 /* TDTCropRatioOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 713FA30C2031AF1C008983D3 /* TDTCropRatioOption.m */; };
 		7177CE661FFE5F270021200B /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7177CE641FFE5F040021200B /* Resources.xcassets */; };
 		7BAC4859CE693ED930548035608315BE /* Pods-TDTPhotoTweaks_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */; };
 		885E8BEB3DED7E0C19D4292486EAEC3B /* TDTPhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A71587D4CB921F8A693802C97D682D8 /* TDTPhotoTweaksViewController.m */; };
@@ -60,6 +62,8 @@
 		6303F5CA328A867E6D0F0A5170674B1E /* Pods-TDTPhotoTweaks_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TDTPhotoTweaks_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6A93E40876B322C85FE5082744017C3A /* Pods-TDTPhotoTweaks_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TDTPhotoTweaks_Example-dummy.m"; sourceTree = "<group>"; };
+		713FA30B2031AF1C008983D3 /* TDTCropRatioOption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDTCropRatioOption.h; sourceTree = "<group>"; };
+		713FA30C2031AF1C008983D3 /* TDTCropRatioOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDTCropRatioOption.m; sourceTree = "<group>"; };
 		7177CE641FFE5F040021200B /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		8116EF701DC8B9BE676E23E6BC482A09 /* TDTCompassSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDTCompassSlider.h; sourceTree = "<group>"; };
 		8ACCE16841C6FA0AA784E4DC7B0D8119 /* TDTPhotoTweaks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TDTPhotoTweaks-dummy.m"; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				A595EDEE950CCE9E7569BD1E9956FC41 /* TDTPhotoTweakView.m */,
 				51AAC47AB9E4B4BDFF114EC4781AD0DA /* UIColor+TDTTweak.h */,
 				EA6AF6C67627FB62F54E5AB8756A59AC /* UIColor+TDTTweak.m */,
+				713FA30B2031AF1C008983D3 /* TDTCropRatioOption.h */,
+				713FA30C2031AF1C008983D3 /* TDTCropRatioOption.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				D518710F11B38B516A206C90755CA36D /* TDTPhotoTweaks-umbrella.h in Headers */,
 				E9C16CB2F3E15B096DF6249C6CCDEC9D /* TDTPhotoTweaksViewController.h in Headers */,
 				C20A2553D8033F50C331375DA199DAE7 /* TDTPhotoTweakView.h in Headers */,
+				713FA30E2031AF1C008983D3 /* TDTCropRatioOption.h in Headers */,
 				9B3A3621DAFA9667B07DF06CF3A79A67 /* UIColor+TDTTweak.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +399,7 @@
 				885E8BEB3DED7E0C19D4292486EAEC3B /* TDTPhotoTweaksViewController.m in Sources */,
 				19B3214E1BCAC9D127E1063ED2AF8E76 /* TDTPhotoTweakView.m in Sources */,
 				35EFB15509EE8A2B35F3B5D548BC5B6C /* UIColor+TDTTweak.m in Sources */,
+				713FA3102031AF1C008983D3 /* TDTCropRatioOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
