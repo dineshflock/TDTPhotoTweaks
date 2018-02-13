@@ -21,6 +21,8 @@ static NSString * const BarButtonTitleReset = @"RESET";
 @property (strong, nonatomic) UIToolbar *tweakOptionToolbar;
 
 @property (strong, nonatomic) UIBarButtonItem *resetTweakOptionBarButton;
+@property (assign, nonatomic) BOOL isCropRatioSelected;
+@property (strong, nonatomic) UIBarButtonItem *ratioOptionButton;
 
 @end
 
@@ -30,6 +32,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
   if (self = [super init]) {
     _image = image;
     _autoSaveToLibray = NO;
+    _isCropRatioSelected = NO;
     _maxRotationAngle = MaxRotationAngle;
     _cropOptions = [self defaultCropOptions];
   }
@@ -124,14 +127,14 @@ static NSString * const BarButtonTitleReset = @"RESET";
                                                                         target:self
                                                                         action:@selector(rotateButtonTapped)];
   
-  UIBarButtonItem *ratioOptionButton = [[UIBarButtonItem alloc] initWithImage:ratioImage
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(ratioButtonTapped)];
+  self.ratioOptionButton = [[UIBarButtonItem alloc] initWithImage:ratioImage
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(ratioButtonTapped)];
   
   UIBarButtonItem *flexibleSpaceOne = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   UIBarButtonItem *flexibleSpaceTwo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, flexibleSpaceTwo, ratioOptionButton]];
+  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, flexibleSpaceTwo, self.ratioOptionButton]];
 }
 
 - (void)hideResetBarButton:(BOOL)hidden {
