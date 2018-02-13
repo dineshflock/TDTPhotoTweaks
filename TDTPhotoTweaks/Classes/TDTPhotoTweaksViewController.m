@@ -21,6 +21,8 @@ static NSString * const BarButtonTitleReset = @"RESET";
 @property (strong, nonatomic) UIToolbar *tweakOptionToolbar;
 
 @property (strong, nonatomic) UIBarButtonItem *resetTweakOptionBarButton;
+@property (assign, nonatomic) BOOL isCropRatioSelected;
+@property (strong, nonatomic) UIBarButtonItem *ratioOptionButton;
 
 @end
 
@@ -30,8 +32,10 @@ static NSString * const BarButtonTitleReset = @"RESET";
   if (self = [super init]) {
     _image = image;
     _autoSaveToLibray = NO;
+    _isCropRatioSelected = NO;
     _maxRotationAngle = MaxRotationAngle;
     _cropOptions = [self defaultCropOptions];
+    _actionBarButtonSelectionColor = [UIColor whiteColor];
   }
   return self;
 }
@@ -42,7 +46,6 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [array addObject:[[TDTCropRatioOption alloc] initWithName:@"Square" widthHeightRatio:1.0]];
   [array addObject:[[TDTCropRatioOption alloc] initWithName:@"3:2" widthHeightRatio:3.0/2.0]];
   [array addObject:[[TDTCropRatioOption alloc] initWithName:@"4:3" widthHeightRatio:4.0/3.0]];
-  [array addObject:[TDTCropRatioOption cropOptionNone]];
   return array;
 }
 
@@ -124,14 +127,14 @@ static NSString * const BarButtonTitleReset = @"RESET";
                                                                         target:self
                                                                         action:@selector(rotateButtonTapped)];
   
-  UIBarButtonItem *ratioOptionButton = [[UIBarButtonItem alloc] initWithImage:ratioImage
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(ratioButtonTapped)];
+  self.ratioOptionButton = [[UIBarButtonItem alloc] initWithImage:ratioImage
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(ratioButtonTapped)];
   
   UIBarButtonItem *flexibleSpaceOne = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   UIBarButtonItem *flexibleSpaceTwo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, flexibleSpaceTwo, ratioOptionButton]];
+  [self.tweakOptionToolbar setItems:@[rotateOptionButton, flexibleSpaceOne, flexibleSpaceTwo, self.ratioOptionButton]];
 }
 
 - (void)hideResetBarButton:(BOOL)hidden {
@@ -151,9 +154,9 @@ static NSString * const BarButtonTitleReset = @"RESET";
     return _resetTweakOptionBarButton;
   }
   _resetTweakOptionBarButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleReset
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(resetButtonTapped)];
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(resetButtonTapped)];
   NSUInteger fontSize = 14.0;
   UIFont *font = [UIFont systemFontOfSize:fontSize];
   NSDictionary *attributes = @{NSFontAttributeName: font};
@@ -165,8 +168,19 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [self.photoView rotateImage];
 }
 
+- (void)setCropRatioButtonSelected:(BOOL)selected {
+  self.isCropRatioSelected = selected;
+  [self.ratioOptionButton setTintColor:selected ? self.actionBarButtonSelectionColor : nil ];
+}
+
 - (void)ratioButtonTapped {
   if (self.cropOptions.count <= 0) {
+    return;
+  }
+  
+  if (self.isCropRatioSelected) {
+    [self setCropRatioButtonSelected:NO];
+    [self.photoView lockCropViewToRatio:-1];
     return;
   }
   UIAlertController *optionsVC = [UIAlertController alertControllerWithTitle:nil
@@ -177,6 +191,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
     [optionsVC addAction:[UIAlertAction actionWithTitle:option.name
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                  [weakSelf setCropRatioButtonSelected:YES];
                                                   [weakSelf.photoView lockCropViewToRatio:option.widthToHeightRatio];
                                                 }]];
   }
@@ -378,6 +393,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 - (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView {
   [self hideResetBarButton:YES];
+  [self setCropRatioButtonSelected:NO];
   if ([self.delegate respondsToSelector:@selector(photoTweaksControllerDidReset:)]) {
     [self.delegate photoTweaksControllerDidReset:self];
   }
