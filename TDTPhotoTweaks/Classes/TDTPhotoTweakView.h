@@ -20,8 +20,11 @@ extern const CGFloat MaxRotationAngle;
 
 @protocol TDTPhotoTweakViewChangeListner <NSObject>
 
-- (void)photoTweakViewDidUndergoChange:(TDTPhotoTweakView *)photoTweakView;
+- (void)photoTweakViewDidUndergoRotationChange:(TDTPhotoTweakView *)photoTweakView;
 - (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView;
+- (void)photoTweakViewDidUndergoCropFrameChange:(TDTPhotoTweakView *)photoTweakView;
+- (void)photoTweakViewDidUndergoAngleChange:(TDTPhotoTweakView *)photoTweakView currentAngle:(CGFloat)angle;
+- (void)photoTweakViewDidUndergoLockingChange:(TDTPhotoTweakView *)photoTweakView withWidthToHeightRatio:(CGFloat)ratio;
 
 @end
 
