@@ -46,7 +46,6 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [array addObject:[[TDTCropRatioOption alloc] initWithName:@"Square" widthHeightRatio:1.0]];
   [array addObject:[[TDTCropRatioOption alloc] initWithName:@"3:2" widthHeightRatio:3.0/2.0]];
   [array addObject:[[TDTCropRatioOption alloc] initWithName:@"4:3" widthHeightRatio:4.0/3.0]];
-  [array addObject:[TDTCropRatioOption cropOptionNone]];
   return array;
 }
 

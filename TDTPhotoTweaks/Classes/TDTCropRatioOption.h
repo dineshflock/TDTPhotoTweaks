@@ -15,6 +15,4 @@
 - (instancetype)initWithName:(NSString *)name
             widthHeightRatio:(CGFloat)widthToHeightRatio;
 
-+ (instancetype)cropOptionNone;
-
 @end

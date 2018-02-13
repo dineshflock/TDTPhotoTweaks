@@ -25,8 +25,4 @@
   return self;
 }
 
-+(instancetype)cropOptionNone {
-  return [[TDTCropRatioOption alloc] initWithName:@"None" widthHeightRatio:-1];
-}
-
 @end
