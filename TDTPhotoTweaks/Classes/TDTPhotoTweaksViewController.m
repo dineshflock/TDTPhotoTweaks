@@ -173,10 +173,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
                                                                      message:nil
                                                               preferredStyle:UIAlertControllerStyleActionSheet];
   for (TDTCropRatioOption *option in self.cropOptions) {
+    __weak typeof(self) weakSelf = self;
     [optionsVC addAction:[UIAlertAction actionWithTitle:option.name
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                  [self.photoView lockCropViewToRatio:option.widthToHeightRatio];
+                                                  [weakSelf.photoView lockCropViewToRatio:option.widthToHeightRatio];
                                                 }]];
   }
   [optionsVC addAction:[UIAlertAction actionWithTitle:@"Cancel"
