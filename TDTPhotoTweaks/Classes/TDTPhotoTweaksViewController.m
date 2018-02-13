@@ -155,9 +155,9 @@ static NSString * const BarButtonTitleReset = @"RESET";
     return _resetTweakOptionBarButton;
   }
   _resetTweakOptionBarButton = [[UIBarButtonItem alloc] initWithTitle:BarButtonTitleReset
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(resetButtonTapped)];
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(resetButtonTapped)];
   NSUInteger fontSize = 14.0;
   UIFont *font = [UIFont systemFontOfSize:fontSize];
   NSDictionary *attributes = @{NSFontAttributeName: font};
