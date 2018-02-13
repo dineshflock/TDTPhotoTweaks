@@ -169,8 +169,19 @@ static NSString * const BarButtonTitleReset = @"RESET";
   [self.photoView rotateImage];
 }
 
+- (void)setCropRatioButtonSelected:(BOOL)selected {
+  self.isCropRatioSelected = selected;
+  [self.ratioOptionButton setTintColor:selected ? self.actionBarButtonSelectionColor : nil ];
+}
+
 - (void)ratioButtonTapped {
   if (self.cropOptions.count <= 0) {
+    return;
+  }
+  
+  if (self.isCropRatioSelected) {
+    [self setCropRatioButtonSelected:NO];
+    [self.photoView lockCropViewToRatio:-1];
     return;
   }
   UIAlertController *optionsVC = [UIAlertController alertControllerWithTitle:nil
@@ -181,6 +192,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
     [optionsVC addAction:[UIAlertAction actionWithTitle:option.name
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                  [weakSelf setCropRatioButtonSelected:YES];
                                                   [weakSelf.photoView lockCropViewToRatio:option.widthToHeightRatio];
                                                 }]];
   }
@@ -382,6 +394,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 - (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView {
   [self hideResetBarButton:YES];
+  [self setCropRatioButtonSelected:NO];
   if ([self.delegate respondsToSelector:@selector(photoTweaksControllerDidReset:)]) {
     [self.delegate photoTweaksControllerDidReset:self];
   }
