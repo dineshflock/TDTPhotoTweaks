@@ -54,6 +54,11 @@
 @property (nonatomic, strong) UIColor *actionToolbarTintColor;
 
 /**
+ Color of the bar buttons in case of selection(currently applies to crop ratio button)
+ */
+@property (nonatomic, strong) UIColor *actionBarButtonSelectionColor;
+
+/**
  Creates a photo tweaks view controller with the image to process.
  */
 - (instancetype)initWithImage:(UIImage *)image;
