@@ -35,6 +35,7 @@ static NSString * const BarButtonTitleReset = @"RESET";
     _isCropRatioSelected = NO;
     _maxRotationAngle = MaxRotationAngle;
     _cropOptions = [self defaultCropOptions];
+    _actionBarButtonSelectionColor = [UIColor whiteColor];
   }
   return self;
 }
