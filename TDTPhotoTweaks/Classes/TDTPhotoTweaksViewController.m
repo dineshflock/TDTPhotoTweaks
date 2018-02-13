@@ -173,10 +173,11 @@ static NSString * const BarButtonTitleReset = @"RESET";
                                                                      message:nil
                                                               preferredStyle:UIAlertControllerStyleActionSheet];
   for (TDTCropRatioOption *option in self.cropOptions) {
+    __weak typeof(self) weakSelf = self;
     [optionsVC addAction:[UIAlertAction actionWithTitle:option.name
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                  [self.photoView lockCropViewToRatio:option.widthToHeightRatio];
+                                                  [weakSelf.photoView lockCropViewToRatio:option.widthToHeightRatio];
                                                 }]];
   }
   [optionsVC addAction:[UIAlertAction actionWithTitle:@"Cancel"
@@ -208,6 +209,15 @@ static NSString * const BarButtonTitleReset = @"RESET";
   self.photoView.changeListner = self;
   self.photoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   [self.view insertSubview:self.photoView atIndex:0];
+}
+
+- (TDTCropRatioOption *)ratioOptionWithWidthToHeightRatio:(CGFloat)ratio inArray:(NSArray *)array {
+  for (TDTCropRatioOption *option in array) {
+    if (option.widthToHeightRatio == ratio) {
+      return option;
+    }
+  }
+  return nil;
 }
 
 - (void)cancelButtonTapped {
@@ -359,12 +369,37 @@ static NSString * const BarButtonTitleReset = @"RESET";
 
 #pragma mark - Change listner on photo tweak view
 
-- (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView {
-  [self hideResetBarButton:YES];
+- (void)photoTweakViewDidUndergoRotationChange:(TDTPhotoTweakView *)photoTweakView {
+  [self hideResetBarButton:NO];
+  if ([self.delegate respondsToSelector:@selector(photoTweaksControllerDidRotate:)]) {
+    [self.delegate photoTweaksControllerDidRotate:self];
+  }
 }
 
-- (void)photoTweakViewDidUndergoChange:(TDTPhotoTweakView *)photoTweakView {
+- (void)photoTweakViewDidUndergoReset:(TDTPhotoTweakView *)photoTweakView {
+  [self hideResetBarButton:YES];
+  if ([self.delegate respondsToSelector:@selector(photoTweaksControllerDidReset:)]) {
+    [self.delegate photoTweaksControllerDidReset:self];
+  }
+}
+
+- (void)photoTweakViewDidUndergoCropFrameChange:(TDTPhotoTweakView *)photoTweakView {
   [self hideResetBarButton:NO];
+}
+
+- (void)photoTweakViewDidUndergoAngleChange:(TDTPhotoTweakView *)photoTweakView currentAngle:(CGFloat)angle {
+  [self hideResetBarButton:NO];
+  if ([self.delegate respondsToSelector:@selector(photoTweaksControllerDidRotateSlider:toAngle:)]) {
+    [self.delegate photoTweaksControllerDidRotateSlider:self toAngle:angle];
+  }
+}
+
+- (void)photoTweakViewDidUndergoLockingChange:(TDTPhotoTweakView *)photoTweakView withWidthToHeightRatio:(CGFloat)ratio {
+  [self hideResetBarButton:NO];
+  if ([self.delegate respondsToSelector:@selector(photoTweaksController:didLockCroppingToOption:)]) {
+    TDTCropRatioOption *option = [self ratioOptionWithWidthToHeightRatio:ratio inArray:self.cropOptions];
+    [self.delegate photoTweaksController:self didLockCroppingToOption:option];
+  }
 }
 
 @end

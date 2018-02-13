@@ -540,8 +540,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)compassSliderEndRotate:(TDTCompassSlider *)slider {
-  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
-    [self.changeListner photoTweakViewDidUndergoChange:self];
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoAngleChange:currentAngle:)]) {
+    [self.changeListner photoTweakViewDidUndergoAngleChange:self currentAngle:slider.rotation];
   }
   [self.cropView dismissGridLines];
 }
@@ -596,8 +596,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)cropEnded:(TDTCropView *)cropView {
-  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
-    [self.changeListner photoTweakViewDidUndergoChange:self];
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoCropFrameChange:)]) {
+    [self.changeListner photoTweakViewDidUndergoCropFrameChange:self];
   }
   CGFloat scaleX = self.originalSize.width / cropView.bounds.size.width;
   CGFloat scaleY = self.originalSize.height / cropView.bounds.size.height;
@@ -726,8 +726,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)rotateImage {
-  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
-    [self.changeListner photoTweakViewDidUndergoChange:self];
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoRotationChange:)]) {
+    [self.changeListner photoTweakViewDidUndergoRotationChange:self];
   }
   self.numberRotations += 1;
   [UIView animateWithDuration:0.25 animations:^{
@@ -737,8 +737,8 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 }
 
 - (void)lockCropViewToRatio:(CGFloat)ratio {
-  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoChange:)]) {
-    [self.changeListner photoTweakViewDidUndergoChange:self];
+  if ([self.changeListner respondsToSelector:@selector(photoTweakViewDidUndergoLockingChange:withWidthToHeightRatio:)]) {
+    [self.changeListner photoTweakViewDidUndergoLockingChange:self withWidthToHeightRatio:ratio];
   }
   [self.cropView lockToRatio:ratio];
 }

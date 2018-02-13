@@ -79,4 +79,20 @@ static NSString * const ControllerTitle = @"Sample";
   [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)photoTweaksControllerDidReset:(TDTPhotoTweaksViewController *)controller {
+  NSLog(@"photoTweaksControllerDidReset");
+}
+
+- (void)photoTweaksControllerDidRotate:(TDTPhotoTweaksViewController *)controller {
+  NSLog(@"photoTweaksControllerDidRotate");
+}
+
+- (void)photoTweaksControllerDidRotateSlider:(TDTPhotoTweaksViewController *)controller toAngle:(CGFloat)angle {
+  NSLog(@"photoTweaksControllerDidRotateSlider, angle: %@",@(angle));
+}
+
+- (void)photoTweaksController:(TDTPhotoTweaksViewController *)controller didLockCroppingToOption:(TDTCropRatioOption *)option {
+  NSLog(@"didLockCroppingToOption, option: %@ (%@)", option.name, @(option.widthToHeightRatio));
+}
+
 @end

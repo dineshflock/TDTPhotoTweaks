@@ -10,7 +10,7 @@
 @interface TDTCropRatioOption()
 
 @property (nonatomic, strong, readwrite) NSString *name;
-@property (nonatomic, assign, readwrite) double widthToHeightRatio;
+@property (nonatomic, assign, readwrite) CGFloat widthToHeightRatio;
 
 @end
 
