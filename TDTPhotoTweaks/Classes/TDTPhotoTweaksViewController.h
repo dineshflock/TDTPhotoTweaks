@@ -75,4 +75,26 @@
  */
 - (void)photoTweaksControllerDidCancel:(TDTPhotoTweaksViewController *)controller;
 
+@optional
+
+/**
+ Called on RESET button tapped
+ */
+- (void)photoTweaksControllerDidReset:(TDTPhotoTweaksViewController *)controller;
+
+/**
+ Called on 90 degree rotation button tap
+ */
+- (void)photoTweaksControllerDidRotate:(TDTPhotoTweaksViewController *)controller;
+
+/**
+ Called on rotating the image using the compass
+ */
+- (void)photoTweaksControllerDidRotateSlider:(TDTPhotoTweaksViewController *)controller toAngle:(CGFloat)angle;
+
+/**
+ Called on locking the crop frame to an option
+ */
+- (void)photoTweaksController:(TDTPhotoTweaksViewController *)controller didLockCroppingToOption:(TDTCropRatioOption *)option;
+
 @end
