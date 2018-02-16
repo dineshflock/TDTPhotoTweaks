@@ -186,6 +186,8 @@ static NSString * const BarButtonTitleReset = @"RESET";
   UIAlertController *optionsVC = [UIAlertController alertControllerWithTitle:nil
                                                                      message:nil
                                                               preferredStyle:UIAlertControllerStyleActionSheet];
+  optionsVC.popoverPresentationController.sourceView = self.view;
+  optionsVC.popoverPresentationController.barButtonItem = self.ratioOptionButton;
   for (TDTCropRatioOption *option in self.cropOptions) {
     __weak typeof(self) weakSelf = self;
     [optionsVC addAction:[UIAlertAction actionWithTitle:option.name
